@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Casa Vacanze Alghero - Pensiamo a tutto noi, Al miglior prezzo</title>
+    <meta name="description" content="Casa Vacanze ad Alghero - Le migliori soluzioni per le tue vacanze in Sardegna">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@600;700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css" />
+    
+    <!-- Phosphor Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-hidden">
+        <div class="container-nav">
+            <div class="nav-brand">
+                <img src="images/logotest.png" alt="Casa Vacanze Alghero Logo">
+            </div>
+            
+            <ul class="nav-menu-center">
+                <li><a href="#home">HOME</a></li>
+                <li><a href="#properties">APPARTAMENTI</a></li>
+                <li><a href="#about">CHI SIAMO</a></li>
+                <li><a href="#services">SERVIZI</a></li>
+                <li><a href="#contact">CONTATTI</a></li>
+            </ul>
+            
+            <div class="nav-right">
+                <a href="https://wa.me/39XXXXXXXXX" class="btn-nav-primary">Contattaci WhatsApp</a>
+                <span class="nav-language">ITA ▼</span>
+                <a href="tel:+39XXXXXXXXX" class="nav-icon"><i class="ph ph-phone"></i></a>
+                <a href="mailto:info@casavacanzealghero.it" class="nav-icon"><i class="ph ph-envelope"></i></a>
+            </div>
+            
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Fixed Top Icons (Apulia Style) -->
+    <div class="fixed-top-icons">
+        <div class="fixed-icons-left">
+            <a href="tel:+39XXXXXXXXX" class="fixed-icon" title="Telefono">
+                <i class="ph ph-phone"></i>
+            </a>
+            <a href="mailto:info@casevacanzealghero.it" class="fixed-icon" title="Email">
+                <i class="ph ph-envelope"></i>
+            </a>
+        </div>
+        <div class="fixed-icons-center">
+            <img src="images/logotest.png" alt="Casa Vacanze Alghero" class="fixed-logo">
+        </div>
+        <div class="fixed-icons-right">
+            <button class="fixed-icon mobile-menu-toggle" id="mobileMenuBtn" aria-label="Menu">
+                Menù
+                <span class="menu-icon">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </span>
+            </button>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <video class="hero-video" autoplay muted loop playsinline>
+            <source src="images/Sfondo/Video-hero.mp4" type="video/mp4">
+        </video>
+        <div class="hero-overlay"></div>
+        
+        <!-- Floating particles -->
+        <div class="hero-particles">
+            <span></span><span></span><span></span><span></span><span></span>
+            <span></span><span></span><span></span>
+        </div>
+
+        <div class="hero-content">
+            <div class="hero-badge animate-hero">
+                <span class="badge-line"></span>
+                <span class="badge-text">ALGHERO · SARDEGNA</span>
+                <span class="badge-line"></span>
+            </div>
+            <h1 class="hero-title animate-hero">Casa Vacanze<br><span class="hero-title-accent">Alghero</span></h1>
+            <div class="hero-divider animate-hero">
+                <span class="divider-line"></span>
+            </div>
+            <p class="hero-subtitle animate-hero">Il tuo soggiorno perfetto tra mare cristallino e centro storico</p>
+            <div class="hero-stars">
+                <i class="ph-fill ph-star star-icon"></i>
+                <i class="ph-fill ph-star star-icon"></i>
+                <i class="ph-fill ph-star star-icon"></i>
+                <i class="ph-fill ph-star star-icon"></i>
+                <i class="ph-fill ph-star star-icon"></i>
+            </div>
+        </div>
+        <div class="hero-bottom-cta">
+            <span class="cta-text">SCOPRI GLI ALLOGGI</span>
+            <i class="ph ph-arrow-down cta-arrow"></i>
+        </div>
+    </section>
+
+
+
+    <!-- Introduction Section -->
+    <section id="about" class="intro-section-dark">
+        <div class="intro-editorial">
+            <span class="intro-eyebrow">I NOSTRI ALLOGGI AD ALGHERO</span>
+            <h2 class="intro-headline">Il tuo soggiorno,<br>la nostra <span class="intro-accent">passione</span></h2>
+            <p class="intro-lead">Appartamenti, camere e residence selezionati nel cuore della Riviera del Corallo.<br>Ogni struttura è studiata per offrirti comfort, posizione e un'esperienza autentica della Sardegna.</p>
+            <div class="intro-features">
+                <div class="intro-feature-item">
+                    <i class="ph ph-house-line"></i>
+                    <span>10+ strutture<br><small>ad Alghero</small></span>
+                </div>
+                <div class="intro-feature-divider"></div>
+                <div class="intro-feature-item">
+                    <i class="ph ph-waves"></i>
+                    <span>Vicino al mare<br><small>e al centro storico</small></span>
+                </div>
+                <div class="intro-feature-divider"></div>
+                <div class="intro-feature-item">
+                    <i class="ph ph-tag"></i>
+                    <span>Miglior tariffa<br><small>prenotando direttamente</small></span>
+                </div>
+                <div class="intro-feature-divider"></div>
+                <div class="intro-feature-item">
+                    <i class="ph ph-star"></i>
+                    <span>Esperienza autentica<br><small>della Sardegna</small></span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Properties Section -->
+    <section id="properties" class="properties-section-dark">
+        <div class="container-full" id="propertiesContainer">
+            <!-- Property cards will be loaded dynamically from properties-data.json -->
+
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section class="gallery-section-mosaic">
+        <div class="container">
+            <div class="gallery-intro">
+                <div class="gallery-left">
+                    <div class="logo-section">
+                        <img src="images/logotest.png" alt="Logo Casa Vacanze Alghero" class="logo-small">
+                    </div>
+                    <div class="gallery-text">
+                        <h2>Alghero, la Perla della Sardegna</h2>
+                        <p>Mare cristallino, spiagge di sabbia bianca e un centro storico ricco di fascino mediterraneo ti aspettano.</p>
+                        <p>Scopri la Riviera del Corallo, gusta la cucina catalano-sarda e immergiti nella cultura unica di questa perla del nord-ovest.</p>
+                    </div>
+                </div>
+                <div class="gallery-mosaic">
+                    <video src="images/video1.mp4" autoplay muted loop playsinline class="mosaic-1"></video>
+                    <video src="images/video2.mp4" autoplay muted loop playsinline class="mosaic-2"></video>
+                    <video src="images/video3.mp4" autoplay muted loop playsinline class="mosaic-3"></video>
+                    <video src="images/video4.mp4" autoplay muted loop playsinline class="mosaic-4"></video>
+                </div>
+            </div>
+            <div class="gallery-badge">
+                <i class="ph ph-seal-check"></i>
+                <span>Ospitalità Eccellente 2026</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services-section-light">
+        <div class="container">
+            <div class="services-intro">
+                <h2>I Nostri<br>Servizi</h2>
+                <p class="services-subtitle"><em>Tutto ciò che offriamo per il tuo soggiorno perfetto</em></p>
+                <div class="services-locations">
+                    <h4>APPARTAMENTI VACANZA</h4>
+                    <p style="color: var(--navy-dark); font-weight: 600; font-size: 1.1rem;"><i class="ph ph-map-pin"></i> ALGHERO SARDEGNA</p>
+                </div>
+            </div>
+            <div class="services-list">
+                <div class="service-item">
+                    <div class="service-icon-box"><i class="ph ph-target"></i></div>
+                    <div class="service-content">
+                        <h3>POSIZIONE STRATEGICA</h3>
+                        <p>Nel cuore di Alghero, vicino a spiagge, ristoranti e attrazioni principali.</p>
+                    </div>
+                </div>
+                <div class="service-item">
+                    <div class="service-icon-box"><i class="ph ph-wifi-high"></i></div>
+                    <div class="service-content">
+                        <h3>APPARTAMENTI ACCESSORIATI</h3>
+                        <p>Wi-Fi, Smart TV con Netflix, aria condizionata e tutto il comfort necessario.</p>
+                    </div>
+                </div>
+                <div class="service-item">
+                    <div class="service-icon-box"><i class="ph ph-door-open"></i></div>
+                    <div class="service-content">
+                        <h3>SELF CHECK-IN</h3>
+                        <p>Accesso autonomo h24 senza vincoli di orario, in completa libertà.</p>
+                    </div>
+                </div>
+                <div class="service-item">
+                    <div class="service-icon-box"><i class="ph ph-car"></i></div>
+                    <div class="service-content">
+                        <h3>PARCHEGGI CONVENZIONATI</h3>
+                        <p>Parcheggi privati a tariffa agevolata nelle vicinanze.</p>
+                    </div>
+                </div>
+                <div class="service-item">
+                    <div class="service-icon-box"><i class="ph ph-handshake"></i></div>
+                    <div class="service-content">
+                        <h3>ASSISTENZA DEDICATA</h3>
+                        <p>Staff disponibile h24 per ogni necessità durante il soggiorno.</p>
+                    </div>
+                </div>
+                <div class="service-item">
+                    <div class="service-icon-box"><i class="ph ph-calendar-check"></i></div>
+                    <div class="service-content">
+                        <h3>DISPONIBILITÀ FLESSIBILE</h3>
+                        <p>Contattaci per le migliori tariffe e soluzioni personalizzate.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Map Section -->
+    <section id="map" class="map-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Dove Siamo</h2>
+                <p>Scopri la posizione dei nostri appartamenti e camere nel cuore di Alghero</p>
+            </div>
+            <div id="properties-map" class="properties-map"></div>
+        </div>
+    </section>
+
+    <!-- Footer + Contact Combined -->
+    <footer id="contact" class="footer-combined">
+        <div class="footer-dark-banner"></div>
+        <div class="footer-content-area">
+            <div class="footer-inner">
+                <!-- Left Side: Logo + Contacts + Links -->
+                <div class="footer-info">
+                    <img src="images/logotest.png" alt="Logo Casa Vacanze Alghero" class="footer-logo">
+
+                    <div class="footer-columns">
+                        <div class="footer-col-left">
+                            <h4 class="footer-heading">CONTATTI</h4>
+                            <div class="footer-contact-list">
+                                <a href="tel:+39XXXXXXXXXX" class="footer-contact-item">
+                                    <i class="ph ph-phone"></i>
+                                    <span>+39 XXX XXX XXXX</span>
+                                </a>
+                                <a href="mailto:info@casavacanzealghero.it" class="footer-contact-item">
+                                    <i class="ph ph-envelope-simple"></i>
+                                    <span>info@casavacanzealghero.it</span>
+                                </a>
+                                <div class="footer-contact-item">
+                                    <i class="ph ph-map-pin"></i>
+                                    <span>Alghero, Sardegna</span>
+                                </div>
+                            </div>
+                            <div class="footer-social">
+                                <a href="#" aria-label="Instagram"><i class="ph ph-instagram-logo"></i></a>
+                                <a href="#" aria-label="Facebook"><i class="ph ph-facebook-logo"></i></a>
+                            </div>
+                        </div>
+                        <div class="footer-col-right">
+                            <h4 class="footer-heading">INFO</h4>
+                            <ul class="footer-links">
+                                <li><a href="#home">Home</a></li>
+                                <li><a href="#properties">Appartamenti</a></li>
+                                <li><a href="#about">Chi Siamo</a></li>
+                                <li><a href="#map">Dove Siamo</a></li>
+                                <li><a href="#contact">Contatti</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Side: Form Card (overlaps into dark) -->
+                <div class="footer-form-card">
+                    <h3>Scrivici troveremo la sistemazione migliore per te</h3>
+                    <p class="footer-form-subtitle"><em>Ti risponderemo entro un'ora</em></p>
+                    <form id="contactForm" class="footer-form">
+                        <div class="form-group">
+                            <label>Nome *</label>
+                            <input type="text" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Email *</label>
+                            <input type="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Messaggio *</label>
+                            <textarea name="message" rows="4" required></textarea>
+                        </div>
+                        <button type="submit" class="btn-submit-modern">Invia</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Casa Vacanze Alghero. Tutti i diritti riservati.</p>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Float Button -->
+    <div class="whatsapp-widget">
+        <div class="whatsapp-popup" id="whatsappPopup">
+            <div class="whatsapp-popup-header">
+                <div class="whatsapp-header-content">
+                    <img src="images/logotest.png" alt="Casa Vacanze" class="whatsapp-avatar">
+                    <div class="whatsapp-header-text">
+                        <h4>Casa Vacanze Alghero</h4>
+                        <span class="whatsapp-status">Online</span>
+                    </div>
+                </div>
+                <button class="whatsapp-close" id="whatsappClose">
+                    <i class="ph ph-x"></i>
+                </button>
+            </div>
+            <div class="whatsapp-popup-body">
+                <div class="whatsapp-message">
+                    <div class="whatsapp-message-bubble">
+                        <p>Ciao! 👋</p>
+                        <p>Come possiamo aiutarti?</p>
+                        <span class="whatsapp-time">Online</span>
+                    </div>
+                </div>
+            </div>
+            <div class="whatsapp-popup-footer">
+                <input type="text" id="whatsappInput" placeholder="Scrivi un messaggio..." class="whatsapp-input">
+                <button class="whatsapp-send" id="whatsappSend">
+                    <i class="ph ph-paper-plane-tilt"></i>
+                </button>
+            </div>
+        </div>
+        <button class="whatsapp-float" id="whatsappFloat" aria-label="Contattaci su WhatsApp">
+            <svg class="whatsapp-circle-text" viewBox="0 0 120 120">
+                <defs>
+                    <path id="circlePath" d="M 60, 60 m -45, 0 a 45,45 0 1,1 90,0 a 45,45 0 1,1 -90,0" />
+                </defs>
+                <text class="circle-text">
+                    <textPath href="#circlePath" startOffset="0%">
+                        PARLA CON ME · PARLA CON ME · 
+                    </textPath>
+                </text>
+            </svg>
+            <svg viewBox="0 0 32 32" fill="white" width="32" height="32" class="whatsapp-icon">
+                <path d="M16 0C7.164 0 0 7.164 0 16c0 2.8.736 5.568 2.128 8.016L0 32l8.224-2.112A15.93 15.93 0 0016 32c8.836 0 16-7.164 16-16S24.836 0 16 0zm8.48 22.848c-.352.992-2.064 1.824-2.848 1.952-.752.128-1.728.176-2.784-.176-.64-.208-1.456-.48-2.496-.944-4.368-1.936-7.216-6.32-7.44-6.608-.208-.288-1.776-2.368-1.776-4.512s1.136-3.2 1.536-3.632c.4-.432.88-.544 1.168-.544.304 0 .592.016.848.016.272 0 .624-.096 1.008.768.384.88 1.312 3.2 1.424 3.44.112.24.192.528.032.816-.16.304-.24.48-.48.752-.24.256-.496.576-.72.768-.24.224-.48.464-.208.912.272.432 1.216 2 2.608 3.232 1.792 1.584 3.296 2.08 3.76 2.32.464.224.736.192 1.008-.128.272-.32 1.168-1.36 1.488-1.84.304-.464.624-.384 1.056-.224.432.16 2.752 1.296 3.216 1.536.464.24.784.352.88.56.112.208.112 1.2-.24 2.192z"/>
+            </svg>
+        </button>
+    </div>
+
+    <!-- Leaflet JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+    <script src="js/properties-data.js"></script>
+    <script src="js/script.js"></script>
+    <script src="js/map.js"></script>
+</body>
+</html>

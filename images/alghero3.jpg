@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600">
+  <rect fill="#87CEEB" width="600" height="600"/>
+  <circle fill="#FFD700" cx="100" cy="100" r="50"/>
+  <rect fill="#F4A460" y="450" width="600" height="150"/>
+  <ellipse fill="#4A90E2" cx="300" cy="450" rx="250" ry="80"/>
+  <polygon fill="#2c5f7f" points="100,450 150,380 200,450"/>
+  <polygon fill="#2c5f7f" points="250,450 300,360 350,450"/>
+  <polygon fill="#2c5f7f" points="400,450 450,370 500,450"/>
+  <circle fill="#90EE90" cx="120" cy="480" r="40"/>
+  <circle fill="#90EE90" cx="480" cy="490" r="35"/>
+  <rect fill="#8B4513" x="180" y="470" width="20" height="60"/>
+  <circle fill="#228B22" cx="190" cy="450" r="40"/>
+  <text x="50%" y="30%" dominant-baseline="middle" text-anchor="middle" font-family="serif" font-size="38" fill="#ffffff">Spiagge cristalline</text>
+</svg>

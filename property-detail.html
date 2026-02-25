@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Villa al Mare - Casa Vacanze Alghero</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/property-detail.css">
+    
+    <!-- Flatpickr CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    
+    <!-- Leaflet for Map -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    
+    <!-- Phosphor Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-static">
+        <div class="container-nav">
+            <div class="nav-brand">
+                <img src="images/logotest.png" alt="Casa Vacanze Alghero Logo">
+            </div>
+            
+            <ul class="nav-menu-center">
+                <li><a href="index.html#home">HOME</a></li>
+                <li><a href="index.html#properties">APPARTAMENTI</a></li>
+                <li><a href="index.html#about">CHI SIAMO</a></li>
+                <li><a href="index.html#services">SERVIZI</a></li>
+                <li><a href="index.html#contact">CONTATTI</a></li>
+            </ul>
+            
+            <div class="nav-right">
+                <a href="https://wa.me/393517095415" class="btn-nav-primary">Contattaci WhatsApp</a>
+                <span class="nav-language">ITA ▼</span>
+                <a href="tel:+393517095415" class="nav-icon"><i class="ph ph-phone"></i></a>
+                <a href="mailto:info@casavacanzealghero.it" class="nav-icon"><i class="ph ph-envelope"></i></a>
+            </div>
+            
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Property Detail Section -->
+    <section class="property-detail-section">
+        <div class="container-full" style="padding: 0 30px;">
+            
+            <!-- Main Content Grid -->
+            <div class="detail-grid">
+                
+                <!-- Left: Gallery & Info -->
+                <div class="detail-left">
+                    
+                    <!-- Airbnb-Style Gallery -->
+                    <div class="gallery-airbnb">
+                        <div class="gallery-main">
+                            <img src="images/placeholder-allestimento.jpg" alt="Villa al Mare" data-index="0" onerror="this.onerror=null;this.src='images/placeholder-allestimento.jpg'">
+                            <div class="gallery-overlay"></div>
+                        </div>
+                        <div class="gallery-grid">
+                            <div class="gallery-item">
+                                <img src="images/placeholder-allestimento.jpg" alt="Foto 2" data-index="1" onerror="this.onerror=null;this.src='images/placeholder-allestimento.jpg'">
+                                <div class="gallery-overlay"></div>
+                            </div>
+                            <div class="gallery-item">
+                                <img src="images/placeholder-allestimento.jpg" alt="Foto 3" data-index="2" onerror="this.onerror=null;this.src='images/placeholder-allestimento.jpg'">
+                                <div class="gallery-overlay"></div>
+                            </div>
+                            <div class="gallery-item">
+                                <img src="images/placeholder-allestimento.jpg" alt="Foto 4" data-index="3" onerror="this.onerror=null;this.src='images/placeholder-allestimento.jpg'">
+                                <div class="gallery-overlay"></div>
+                            </div>
+                            <div class="gallery-item">
+                                <img src="images/placeholder-allestimento.jpg" alt="Foto 5" data-index="4" onerror="this.onerror=null;this.src='images/placeholder-allestimento.jpg'">
+                                <div class="gallery-overlay"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Property Title -->
+                    <div class="property-header">
+                        <span class="property-badge">Appartamento</span>
+                        <h1>Villa al Mare</h1>
+                        <div class="property-location">
+                            <i class="ph ph-map-pin"></i>
+                            <span>Alghero Centro</span>
+                        </div>
+                    </div>
+
+                    <!-- Quick Info Cards -->
+                    <div class="quick-info">
+                        <div class="info-card">
+                            <div class="info-card-icon">
+                                <i class="ph ph-users"></i>
+                            </div>
+                            <div class="info-card-text">
+                                <span class="info-card-value">4</span>
+                                <span class="info-card-label">Ospiti</span>
+                            </div>
+                        </div>
+                        <div class="info-card">
+                            <div class="info-card-icon">
+                                <i class="ph ph-bed"></i>
+                            </div>
+                            <div class="info-card-text">
+                                <span class="info-card-value">2</span>
+                                <span class="info-card-label">Camere</span>
+                            </div>
+                        </div>
+                        <div class="info-card">
+                            <div class="info-card-icon">
+                                <i class="ph ph-bathtub"></i>
+                            </div>
+                            <div class="info-card-text">
+                                <span class="info-card-value">2</span>
+                                <span class="info-card-label">Bagni</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Description -->
+                    <div class="property-description">
+                        <h2><i class="ph ph-text-align-left"></i> Descrizione</h2>
+                        <div class="description-text">
+                            <p>Spaziosa e luminosa, questa suite è perfetta per chi sogna coccole e benessere.</p>
+                            <p>Immaginiamoci immersi in conversazioni fitta e risate per condividere tutto quello che avete scoperto nel corso della vostra giornata!</p>
+                        </div>
+                        
+                        <!-- Check-in/out Cards -->
+                        <div class="check-times">
+                            <div class="check-card check-in">
+                                <div class="check-card-icon">
+                                    <i class="ph ph-sign-in"></i>
+                                </div>
+                                <div class="check-card-info">
+                                    <span class="check-card-label">Check-in</span>
+                                    <span class="check-card-time" id="checkinTime">15:00</span>
+                                </div>
+                            </div>
+                            <div class="check-card check-out">
+                                <div class="check-card-icon">
+                                    <i class="ph ph-sign-out"></i>
+                                </div>
+                                <div class="check-card-info">
+                                    <span class="check-card-label">Check-out</span>
+                                    <span class="check-card-time" id="checkoutTime">10:00</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- License codes (collapsible) -->
+                        <div class="license-codes">
+                            <button class="license-toggle" onclick="this.parentElement.classList.toggle('open')">
+                                <i class="ph ph-identification-card"></i>
+                                <span>Codici identificativi</span>
+                                <i class="ph ph-caret-down license-arrow"></i>
+                            </button>
+                            <div class="license-content">
+                                <p><strong>Codice Licenza:</strong> 072008400088575</p>
+                                <p><strong>CIN:</strong> IT072008468400088575</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Amenities/Services -->
+                    <div class="amenities-section">
+                        <h2><i class="ph ph-star"></i> Cosa troverai</h2>
+                        <div class="amenities-grid" id="amenitiesGrid">
+                            <!-- Populated by JS -->
+                        </div>
+                        <button class="show-all-amenities" id="showAllAmenities" style="display: none;">
+                            <i class="ph ph-dots-three"></i>
+                            <span>Mostra tutte le dotazioni</span>
+                        </button>
+                    </div>
+
+                </div>
+
+                <!-- Right: Booking Sidebar -->
+                <div class="detail-right">
+                    <div class="booking-sidebar">
+                        <h3>Richiedi Informazioni</h3>
+                        <p class="booking-sidebar-subtitle">Seleziona le date e contattaci direttamente</p>
+                        
+                        <div class="booking-form">
+                            <!-- Nome -->
+                            <div class="guest-input">
+                                <label>IL TUO NOME</label>
+                                <input type="text" id="userName" placeholder="Inserisci il tuo nome">
+                            </div>
+                            
+                            <!-- Date range selector -->
+                            <div class="date-selector-wrapper">
+                                <div class="date-range-box" id="dateRangeBox">
+                                    <div class="date-range-top">
+                                        <div class="date-range-cell" id="checkinCell">
+                                            <span class="date-range-label">CHECK-IN</span>
+                                            <span class="date-range-value" id="checkinDisplay">Aggiungi data</span>
+                                        </div>
+                                        <div class="date-range-divider-v"></div>
+                                        <div class="date-range-cell" id="checkoutCell">
+                                            <span class="date-range-label">CHECK-OUT</span>
+                                            <span class="date-range-value" id="checkoutDisplay">Aggiungi data</span>
+                                        </div>
+                                    </div>
+                                    <div class="date-range-bottom" id="dateRangeBottom">
+                                        <span class="date-recap" id="dateRecap"></span>
+                                        <span class="nights-badge" id="nightsBadge"></span>
+                                    </div>
+                                </div>
+                                <input type="text" id="dateRange" style="position:absolute;opacity:0;pointer-events:none;height:0;width:0;">
+                            </div>
+                            
+                            <div class="guest-picker-wrapper">
+                                <div class="guest-picker-box" id="guestPickerBox">
+                                    <div class="guest-picker-label">OSPITI</div>
+                                    <div class="guest-picker-summary" id="guestSummary">1 ospite</div>
+                                    <i class="ph ph-caret-down guest-picker-arrow" id="guestArrow"></i>
+                                </div>
+                                <div class="guest-picker-dropdown" id="guestDropdown">
+                                    <div class="guest-row">
+                                        <div class="guest-row-info">
+                                            <span class="guest-row-title">Adulti</span>
+                                            <span class="guest-row-desc">Più di 13 anni</span>
+                                        </div>
+                                        <div class="guest-row-controls">
+                                            <button class="guest-btn" data-type="adults" data-action="minus" disabled>
+                                                <i class="ph ph-minus"></i>
+                                            </button>
+                                            <span class="guest-count" id="adultsCount">1</span>
+                                            <button class="guest-btn" data-type="adults" data-action="plus">
+                                                <i class="ph ph-plus"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <div class="guest-row">
+                                        <div class="guest-row-info">
+                                            <span class="guest-row-title">Bambini</span>
+                                            <span class="guest-row-desc">Età 2 - 12</span>
+                                        </div>
+                                        <div class="guest-row-controls">
+                                            <button class="guest-btn" data-type="children" data-action="minus" disabled>
+                                                <i class="ph ph-minus"></i>
+                                            </button>
+                                            <span class="guest-count" id="childrenCount">0</span>
+                                            <button class="guest-btn" data-type="children" data-action="plus">
+                                                <i class="ph ph-plus"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <div class="guest-row">
+                                        <div class="guest-row-info">
+                                            <span class="guest-row-title">Neonati</span>
+                                            <span class="guest-row-desc">Fino a 2 anni</span>
+                                        </div>
+                                        <div class="guest-row-controls">
+                                            <button class="guest-btn" data-type="infants" data-action="minus" disabled>
+                                                <i class="ph ph-minus"></i>
+                                            </button>
+                                            <span class="guest-count" id="infantsCount">0</span>
+                                            <button class="guest-btn" data-type="infants" data-action="plus">
+                                                <i class="ph ph-plus"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <div class="guest-row guest-row-last">
+                                        <div class="guest-row-info">
+                                            <span class="guest-row-title">Animali domestici</span>
+                                        </div>
+                                        <div class="guest-row-controls">
+                                            <button class="guest-btn" data-type="pets" data-action="minus" disabled>
+                                                <i class="ph ph-minus"></i>
+                                            </button>
+                                            <span class="guest-count" id="petsCount">0</span>
+                                            <button class="guest-btn" data-type="pets" data-action="plus">
+                                                <i class="ph ph-plus"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Guest Recap -->
+                            <div class="guest-recap-bar" id="guestRecapBar">
+                                <span class="guest-recap-text" id="guestRecapText">Siete in 1 ospite</span>
+                            </div>
+
+                            <!-- Messaggio personalizzato -->
+                            <div class="guest-input custom-message-input">
+                                <label>MESSAGGIO <span style="font-weight:400;text-transform:none;font-size:0.75rem;color:#888;">(facoltativo)</span></label>
+                                <textarea id="userMessage" placeholder="Scrivi qui le tue richieste o domande..." rows="3"></textarea>
+                            </div>
+                            
+                            <a href="https://wa.me/393517095415?text=Ciao! Sono interessato alla Villa al Mare. Vorrei maggiori informazioni." class="btn-sidebar-whatsapp" id="whatsappBtn">
+                                <svg viewBox="0 0 32 32" fill="white">
+                                    <path d="M16 0C7.164 0 0 7.164 0 16c0 2.8.736 5.568 2.128 8.016L0 32l8.224-2.112A15.93 15.93 0 0016 32c8.836 0 16-7.164 16-16S24.836 0 16 0zm8.48 22.848c-.352.992-2.064 1.824-2.848 1.952-.752.128-1.728.176-2.784-.176-.64-.208-1.456-.48-2.496-.944-4.368-1.936-7.216-6.32-7.44-6.608-.208-.288-1.776-2.368-1.776-4.512s1.136-3.2 1.536-3.632c.4-.432.88-.544 1.168-.544.304 0 .592.016.848.016.272 0 .624-.096 1.008.768.384.88 1.312 3.2 1.424 3.44.112.24.192.528.032.816-.16.304-.24.48-.48.752-.24.256-.496.576-.72.768-.24.224-.48.464-.208.912.272.432 1.216 2 2.608 3.232 1.792 1.584 3.296 2.08 3.76 2.32.464.224.736.192 1.008-.128.272-.32 1.168-1.36 1.488-1.84.304-.464.624-.384 1.056-.224.432.16 2.752 1.296 3.216 1.536.464.24.784.352.88.56.112.208.112 1.2-.24 2.192z"/>
+                                </svg>
+                                Scrivici su WhatsApp
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Location Map -->
+                    <div class="location-section sidebar-map">
+                        <h2>Località</h2>
+                        <p class="location-address">Via Roma, 123 - Alghero</p>
+                        <div id="map" class="location-map"></div>
+                        
+                        <div class="location-contacts">
+                            <p><i class="ph ph-phone"></i> +39 351 709 5415</p>
+                            <p><i class="ph ph-envelope"></i> info@casevacanzealghero.it</p>
+                        </div>
+                    </div>
+                </div>
+
+        </div>
+    </section>
+
+    <!-- Footer + Contact Combined -->
+    <footer id="contact" class="footer-combined">
+        <div class="footer-content-area">
+            <div class="footer-inner">
+                <!-- Left Side: Logo + Contacts + Links -->
+                <div class="footer-info">
+                    <img src="images/logotest.png" alt="Logo Casa Vacanze Alghero" class="footer-logo">
+
+                    <div class="footer-columns">
+                        <div class="footer-col-left">
+                            <h4 class="footer-heading">CONTATTI</h4>
+                            <div class="footer-contact-list">
+                                <a href="tel:+39XXXXXXXXXX" class="footer-contact-item">
+                                    <i class="ph ph-phone"></i>
+                                    <span>+39 XXX XXX XXXX</span>
+                                </a>
+                                <a href="mailto:info@casavacanzealghero.it" class="footer-contact-item">
+                                    <i class="ph ph-envelope-simple"></i>
+                                    <span>info@casavacanzealghero.it</span>
+                                </a>
+                                <div class="footer-contact-item">
+                                    <i class="ph ph-map-pin"></i>
+                                    <span>Alghero, Sardegna</span>
+                                </div>
+                            </div>
+                            <div class="footer-social">
+                                <a href="#" aria-label="Instagram"><i class="ph ph-instagram-logo"></i></a>
+                                <a href="#" aria-label="Facebook"><i class="ph ph-facebook-logo"></i></a>
+                            </div>
+                        </div>
+                        <div class="footer-col-right">
+                            <h4 class="footer-heading">INFO</h4>
+                            <ul class="footer-links">
+                                <li><a href="index.html#home">Home</a></li>
+                                <li><a href="index.html#properties">Appartamenti</a></li>
+                                <li><a href="index.html#about">Chi Siamo</a></li>
+                                <li><a href="index.html#map">Dove Siamo</a></li>
+                                <li><a href="index.html#contact">Contatti</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Side: Form Card -->
+                <div class="footer-form-card">
+                    <h3>Scrivici troveremo la sistemazione migliore per te</h3>
+                    <p class="footer-form-subtitle"><em>Ti risponderemo entro un'ora</em></p>
+                    <form id="contactForm" class="footer-form">
+                        <div class="form-group">
+                            <label>Nome *</label>
+                            <input type="text" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Email *</label>
+                            <input type="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Messaggio *</label>
+                            <textarea name="message" rows="4" required></textarea>
+                        </div>
+                        <button type="submit" class="btn-submit-modern">Invia</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Casa Vacanze Alghero. Tutti i diritti riservati.</p>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Widget -->
+    <div class="whatsapp-widget">
+        <div class="whatsapp-popup" id="whatsappPopup">
+            <div class="whatsapp-popup-header">
+                <div class="whatsapp-header-content">
+                    <img src="images/logotest.png" alt="Casa Vacanze" class="whatsapp-avatar">
+                    <div class="whatsapp-header-text">
+                        <h4>Casa Vacanze Alghero</h4>
+                        <span class="whatsapp-status">Online</span>
+                    </div>
+                </div>
+                <button class="whatsapp-close" id="whatsappClose">
+                    <i class="ph ph-x"></i>
+                </button>
+            </div>
+            <div class="whatsapp-popup-body">
+                <div class="whatsapp-message">
+                    <div class="whatsapp-message-bubble">
+                        <p>Ciao! 👋</p>
+                        <p>Come possiamo aiutarti?</p>
+                        <span class="whatsapp-time">Online</span>
+                    </div>
+                </div>
+            </div>
+            <div class="whatsapp-popup-footer">
+                <input type="text" id="whatsappInput" placeholder="Scrivi un messaggio..." class="whatsapp-input">
+                <button class="whatsapp-send" id="whatsappSend">
+                    <i class="ph ph-paper-plane-tilt"></i>
+                </button>
+            </div>
+        </div>
+        <button class="whatsapp-float" id="whatsappFloat" aria-label="Contattaci su WhatsApp">
+            <svg class="whatsapp-circle-text" viewBox="0 0 120 120">
+                <defs>
+                    <path id="circlePath" d="M 60, 60 m -45, 0 a 45,45 0 1,1 90,0 a 45,45 0 1,1 -90,0" />
+                </defs>
+                <text class="circle-text">
+                    <textPath href="#circlePath" startOffset="0%">
+                        PARLA CON ME · PARLA CON ME · 
+                    </textPath>
+                </text>
+            </svg>
+            <svg viewBox="0 0 32 32" fill="white" width="32" height="32" class="whatsapp-icon">
+                <path d="M16 0C7.164 0 0 7.164 0 16c0 2.8.736 5.568 2.128 8.016L0 32l8.224-2.112A15.93 15.93 0 0016 32c8.836 0 16-7.164 16-16S24.836 0 16 0zm8.48 22.848c-.352.992-2.064 1.824-2.848 1.952-.752.128-1.728.176-2.784-.176-.64-.208-1.456-.48-2.496-.944-4.368-1.936-7.216-6.32-7.44-6.608-.208-.288-1.776-2.368-1.776-4.512s1.136-3.2 1.536-3.632c.4-.432.88-.544 1.168-.544.304 0 .592.016.848.016.272 0 .624-.096 1.008.768.384.88 1.312 3.2 1.424 3.44.112.24.192.528.032.816-.16.304-.24.48-.48.752-.24.256-.496.576-.72.768-.24.224-.48.464-.208.912.272.432 1.216 2 2.608 3.232 1.792 1.584 3.296 2.08 3.76 2.32.464.224.736.192 1.008-.128.272-.32 1.168-1.36 1.488-1.84.304-.464.624-.384 1.056-.224.432.16 2.752 1.296 3.216 1.536.464.24.784.352.88.56.112.208.112 1.2-.24 2.192z"/>
+            </svg>
+        </button>
+    </div>
+
+    <!-- Leaflet JS -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    
+    <!-- Flatpickr JS -->
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script src="https://npmcdn.com/flatpickr/dist/l10n/it.js"></script>
+    
+    <!-- Custom JS -->
+    <script src="js/properties-data.js"></script>
+    <script src="js/script.js"></script>
+    <script src="js/property-detail.js"></script>
+
+</body>
+</html>

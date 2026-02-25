@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+  <defs>
+    <style>
+      .logo-petals { fill: #C27A50; }
+      .logo-center { fill: #1a3a52; }
+    </style>
+  </defs>
+  <!-- Petali esterni -->
+  <g class="logo-petals">
+    <circle cx="100" cy="40" r="12"/>
+    <circle cx="140" cy="55" r="12"/>
+    <circle cx="160" cy="100" r="12"/>
+    <circle cx="140" cy="145" r="12"/>
+    <circle cx="100" cy="160" r="12"/>
+    <circle cx="60" cy="145" r="12"/>
+    <circle cx="40" cy="100" r="12"/>
+    <circle cx="60" cy="55" r="12"/>
+  </g>
+  <!-- Petali interni -->
+  <g class="logo-petals">
+    <path d="M 100,60 Q 85,75 100,90 Q 115,75 100,60 Z"/>
+    <path d="M 130,70 Q 115,85 130,100 Q 145,85 130,70 Z"/>
+    <path d="M 140,100 Q 125,115 140,130 Q 155,115 140,100 Z"/>
+    <path d="M 130,130 Q 115,115 100,130 Q 115,145 130,130 Z"/>
+    <path d="M 100,140 Q 85,125 70,140 Q 85,155 100,140 Z"/>
+    <path d="M 70,130 Q 55,115 70,100 Q 85,115 70,130 Z"/>
+    <path d="M 60,100 Q 45,85 60,70 Q 75,85 60,100 Z"/>
+    <path d="M 70,70 Q 85,85 100,70 Q 85,55 70,70 Z"/>
+  </g>
+  <!-- Centro -->
+  <circle class="logo-center" cx="100" cy="100" r="18"/>
+</svg>

@@ -1,0 +1,391 @@
+{
+  "properties": [
+    {
+      "id": "residence-buganvillea",
+      "name": "Residence Buganvillea",
+      "location": "Alghero – Lido",
+      "address": "Via Lido 77, Alghero",
+      "guests": 6,
+      "bedrooms": 2,
+      "bathrooms": 1,
+      "sqm": 40,
+      "checkin": "15:00",
+      "checkout": "10:00",
+      "cin": "IT090003B4000E2200",
+      "description": "Bilocali con angolo cottura in residence fronte spiaggia, con piscina e parcheggio interno. Balcone, aria condizionata e Wi-Fi inclusi. Ristoranti, supermercato e servizi nelle immediate vicinanze. Centro storico raggiungibile a piedi in 20 minuti.",
+      "images": [
+        "https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=800&h=600&fit=crop",
+        "https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?w=800&h=600&fit=crop",
+        "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=800&h=600&fit=crop"
+      ],
+      "amenities": [
+        "Wi-Fi gratuito",
+        "Aria condizionata",
+        "Riscaldamento",
+        "Cucina attrezzata",
+        "Lavatrice a gettoni",
+        "Balcone",
+        "Parcheggio a pagamento",
+        "Piscina",
+        "Animali ammessi"
+      ],
+      "cancellationPolicy": "Cancellazione gratuita senza pagamento anticipato"
+    },
+    {
+      "id": "appartamenti-limoni",
+      "name": "Appartamenti I Limoni",
+      "location": "Alghero – Centro",
+      "address": "Via Brigata Sassari 17, Alghero",
+      "guests": 4,
+      "bedrooms": 2,
+      "bathrooms": 1,
+      "checkin": "15:00",
+      "checkout": "10:00",
+      "description": "Monolocali e bilocali a 5 minuti dal centro storico di Alghero. Dotati di tutti i comfort moderni, con disponibilità di un esclusivo bilocale VIP con vasca idromassaggio per chi cerca qualcosa di speciale.",
+      "images": [
+        "https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?w=800&h=600&fit=crop",
+        "https://images.unsplash.com/photo-1560448204-e1a3c6c9f6f1?w=800&h=600&fit=crop",
+        "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=800&h=600&fit=crop"
+      ],
+      "amenities": [
+        "Wi-Fi gratuito",
+        "Aria condizionata",
+        "Riscaldamento",
+        "TV Smart",
+        "Cucina attrezzata",
+        "Lavatrice",
+        "Macchina caffè",
+        "Balcone"
+      ],
+      "cancellationPolicy": "Cancellazione gratuita senza pagamento anticipato"
+    },
+    {
+      "id": "appartamenti-camere-amelia",
+      "name": "Appartamenti e Camere Amelia",
+      "location": "Alghero – Centro",
+      "address": "Via Lamarmora 58, Alghero",
+      "guests": 3,
+      "bedrooms": 1,
+      "bathrooms": 1,
+      "checkin": "15:00",
+      "checkout": "10:00",
+      "description": "Camere e appartamenti finemente arredati a soli 2 minuti dal porto e dal centro storico di Alghero. La posizione ideale per esplorare la città e vivere l'atmosfera autentica della Riviera del Corallo.",
+      "images": [
+        "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=800&h=600&fit=crop",
+        "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=800&h=600&fit=crop",
+        "https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?w=800&h=600&fit=crop"
+      ],
+      "amenities": [
+        "Wi-Fi gratuito",
+        "Aria condizionata",
+        "Riscaldamento",
+        "TV Smart",
+        "Cucina attrezzata",
+        "Lavatrice",
+        "Biancheria inclusa"
+      ],
+      "cancellationPolicy": "Cancellazione gratuita senza pagamento anticipato"
+    },
+    {
+      "id": "camere-victoria",
+      "name": "Camere Victoria",
+      "location": "Alghero – Centro",
+      "address": "Via La Marmora 35, Alghero",
+      "guests": 3,
+      "bedrooms": 1,
+      "bathrooms": 1,
+      "checkin": "15:00",
+      "checkout": "10:00",
+      "description": "Camere confortevoli con aria condizionata a pochi passi dal centro storico di Alghero. Soluzione pratica e ben posizionata per chi vuole vivere la città in totale libertà, con tutti i servizi a portata di mano.",
+      "images": [
+        "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=800&h=600&fit=crop",
+        "https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?w=800&h=600&fit=crop",
+        "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=800&h=600&fit=crop"
+      ],
+      "amenities": [
+        "Wi-Fi gratuito",
+        "Aria condizionata",
+        "Ascensore",
+        "Asciugamani inclusi",
+        "Phon"
+      ],
+      "cancellationPolicy": "Cancellazione gratuita senza pagamento anticipato"
+    },
+    {
+      "id": "casa-cipro",
+      "name": "Casa Cipro",
+      "location": "Alghero – Lido",
+      "guests": 4,
+      "bedrooms": 2,
+      "bathrooms": 1,
+      "checkin": "15:00",
+      "checkout": "10:00",
+      "description": "Appartamento con 2 camere a soli 3 minuti dalla spiaggia. Perfetto per famiglie o gruppi di amici che vogliono godersi il mare di Alghero con tutti i comfort di casa.",
+      "images": [
+        "https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?w=800&h=600&fit=crop",
+        "https://images.unsplash.com/photo-1560448204-e1a3c6c9f6f1?w=800&h=600&fit=crop",
+        "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=800&h=600&fit=crop"
+      ],
+      "amenities": [
+        "Wi-Fi gratuito",
+        "Aria condizionata",
+        "Riscaldamento",
+        "TV Smart",
+        "Cucina attrezzata",
+        "Lavatrice",
+        "Biancheria inclusa"
+      ],
+      "cancellationPolicy": "Cancellazione gratuita senza pagamento anticipato"
+    }
+  ]
+}
+    {
+      "id": "appartamenti-limoni",
+      "name": "Appartamenti Limoni",
+      "location": "Alghero",
+      "guests": 4,
+      "bedrooms": 2,
+      "bathrooms": 1,
+      "description": "Appartamenti luminosi e accoglienti nel cuore di Alghero. Ideali per famiglie o piccoli gruppi, con tutti i comfort necessari per un soggiorno indimenticabile nella splendida Riviera del Corallo.",
+      "images": [
+        "https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?w=800&h=600&fit=crop",
+        "https://images.unsplash.com/photo-1560448204-e1a3c6c9f6f1?w=800&h=600&fit=crop",
+        "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=800&h=600&fit=crop"
+      ],
+      "amenities": [
+        "Wi-Fi gratuito",
+        "Aria condizionata",
+        "TV Smart",
+        "Cucina attrezzata",
+        "Balcone",
+        "Self check-in"
+      ],
+      "pricePerNight": 85,
+      "cancellationPolicy": "Cancellazione gratuita senza pagamento anticipato"
+    },
+    {
+      "id": "appartamenti-camere-amelia",
+      "name": "Appartamenti/Camere Amelia",
+      "location": "Alghero Centro",
+      "guests": 3,
+      "bedrooms": 1,
+      "bathrooms": 1,
+      "description": "Appartamenti e camere nel centro di Alghero, perfetti per chi desidera vivere la città a piedi. A pochi minuti dal mare e dal centro storico, con tutti i servizi nelle immediate vicinanze.",
+      "images": [
+        "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=800&h=600&fit=crop",
+        "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=800&h=600&fit=crop",
+        "https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?w=800&h=600&fit=crop"
+      ],
+      "amenities": [
+        "Wi-Fi gratuito",
+        "Aria condizionata",
+        "TV a colori",
+        "Angolo cottura",
+        "Self check-in",
+        "Vicino al centro"
+      ],
+      "pricePerNight": 75,
+      "cancellationPolicy": "Cancellazione gratuita senza pagamento anticipato"
+    },
+    {
+      "id": "appartamenti-camere-allegri",
+      "name": "Appartamenti/Camere Allegri",
+      "location": "Alghero",
+      "guests": 4,
+      "bedrooms": 2,
+      "bathrooms": 1,
+      "description": "Appartamenti e camere moderni e funzionali, ideali per famiglie e gruppi di amici. Ambiente accogliente e curato nei dettagli, con tutto il necessario per una vacanza rilassante in Sardegna.",
+      "images": [
+        "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=800&h=600&fit=crop",
+        "https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?w=800&h=600&fit=crop",
+        "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=800&h=600&fit=crop"
+      ],
+      "amenities": [
+        "Wi-Fi gratuito",
+        "Aria condizionata",
+        "TV Smart",
+        "Cucina completa",
+        "Balcone",
+        "Lavatrice"
+      ],
+      "pricePerNight": 90,
+      "cancellationPolicy": "Cancellazione gratuita senza pagamento anticipato"
+    },
+    {
+      "id": "appartamenti-kennedy",
+      "name": "Appartamenti Kennedy",
+      "location": "Alghero Centro",
+      "guests": 5,
+      "bedrooms": 2,
+      "bathrooms": 1,
+      "description": "Appartamenti spaziosi e confortevoli in posizione centrale. Perfetti per famiglie o gruppi di amici che desiderano esplorare Alghero e le sue meravigliose spiagge avendo una base comoda e accessibile.",
+      "images": [
+        "https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?w=800&h=600&fit=crop",
+        "https://images.unsplash.com/photo-1560448204-e1a3c6c9f6f1?w=800&h=600&fit=crop",
+        "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=800&h=600&fit=crop"
+      ],
+      "amenities": [
+        "Wi-Fi gratuito",
+        "Aria condizionata",
+        "TV Smart",
+        "Cucina attrezzata",
+        "Self check-in",
+        "Parcheggio"
+      ],
+      "pricePerNight": 95,
+      "cancellationPolicy": "Cancellazione gratuita senza pagamento anticipato"
+    },
+    {
+      "id": "appartamenti-camere-giosuero",
+      "name": "Appartamenti/Camere Giosuero",
+      "location": "Alghero",
+      "guests": 3,
+      "bedrooms": 1,
+      "bathrooms": 1,
+      "description": "Appartamenti e camere accoglienti ad Alghero, ideali per coppie o piccoli gruppi. Ambiente tranquillo e rilassante, con tutti i comfort necessari per trascorrere una vacanza indimenticabile.",
+      "images": [
+        "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=800&h=600&fit=crop",
+        "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=800&h=600&fit=crop",
+        "https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?w=800&h=600&fit=crop"
+      ],
+      "amenities": [
+        "Wi-Fi gratuito",
+        "Aria condizionata",
+        "TV a colori",
+        "Cucina attrezzata",
+        "Balcone",
+        "Self check-in"
+      ],
+      "pricePerNight": 70,
+      "cancellationPolicy": "Cancellazione gratuita senza pagamento anticipato"
+    },
+    {
+      "id": "appartamento-cipro",
+      "name": "Appartamento Cipro",
+      "location": "Alghero Centro",
+      "guests": 4,
+      "bedrooms": 2,
+      "bathrooms": 1,
+      "description": "Appartamento elegante e spazioso nel cuore di Alghero. Ideale per famiglie, offre ambienti luminosi e arredati con gusto, a due passi dal mare e dal centro storico della città.",
+      "images": [
+        "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=800&h=600&fit=crop",
+        "https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?w=800&h=600&fit=crop",
+        "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=800&h=600&fit=crop"
+      ],
+      "amenities": [
+        "Wi-Fi gratuito",
+        "Aria condizionata",
+        "TV Smart",
+        "Cucina completa",
+        "Balcone",
+        "Lavatrice",
+        "Vicino al mare"
+      ],
+      "pricePerNight": 100,
+      "cancellationPolicy": "Cancellazione gratuita senza pagamento anticipato"
+    },
+    {
+      "id": "appartamento-baleari",
+      "name": "Appartamento Baleari",
+      "location": "Alghero",
+      "guests": 4,
+      "bedrooms": 2,
+      "bathrooms": 1,
+      "description": "Appartamento confortevole e ben accessoriato, perfetto per una vacanza in famiglia o con amici. Ambiente moderno con tutti i comfort, in posizione strategica per visitare Alghero e dintorni.",
+      "images": [
+        "https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?w=800&h=600&fit=crop",
+        "https://images.unsplash.com/photo-1560448204-e1a3c6c9f6f1?w=800&h=600&fit=crop",
+        "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=800&h=600&fit=crop"
+      ],
+      "amenities": [
+        "Wi-Fi gratuito",
+        "Aria condizionata",
+        "TV Smart",
+        "Cucina attrezzata",
+        "Balcone",
+        "Self check-in"
+      ],
+      "pricePerNight": 88,
+      "cancellationPolicy": "Cancellazione gratuita senza pagamento anticipato"
+    },
+    {
+      "id": "lodge-mare-sole",
+      "name": "Lodge Mare Sole",
+      "location": "Alghero Vicino al Mare",
+      "guests": 6,
+      "bedrooms": 3,
+      "bathrooms": 2,
+      "description": "Lodge spazioso e luminoso a pochi passi dal mare. Ideale per gruppi e famiglie numerose, con ampi spazi interni ed esterni per godere del sole e del mare della Riviera del Corallo.",
+      "images": [
+        "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=800&h=600&fit=crop",
+        "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=800&h=600&fit=crop",
+        "https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?w=800&h=600&fit=crop"
+      ],
+      "amenities": [
+        "Wi-Fi gratuito",
+        "Aria condizionata",
+        "TV Smart",
+        "Cucina completa",
+        "Terrazzo",
+        "Vista mare",
+        "Parcheggio",
+        "Lavatrice"
+      ],
+      "pricePerNight": 140,
+      "cancellationPolicy": "Cancellazione gratuita senza pagamento anticipato"
+    },
+    {
+      "id": "residence-eucalipti",
+      "name": "Residence Eucalipti",
+      "location": "Alghero",
+      "guests": 5,
+      "bedrooms": 2,
+      "bathrooms": 2,
+      "description": "Residence moderno e confortevole immerso nel verde. Perfetto per famiglie, offre ampi spazi, due bagni e tutti i comfort per una vacanza rilassante a pochi minuti dal mare e dal centro.",
+      "images": [
+        "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=800&h=600&fit=crop",
+        "https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?w=800&h=600&fit=crop",
+        "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=800&h=600&fit=crop"
+      ],
+      "amenities": [
+        "Wi-Fi gratuito",
+        "Aria condizionata",
+        "TV Smart",
+        "Cucina completa",
+        "Giardino",
+        "Parcheggio",
+        "Lavatrice",
+        "Self check-in"
+      ],
+      "pricePerNight": 110,
+      "cancellationPolicy": "Cancellazione gratuita senza pagamento anticipato"
+    },
+    {
+      "id": "residence-buganvillea",
+      "name": "Residence Buganvillea",
+      "location": "Alghero",
+      "guests": 6,
+      "bedrooms": 3,
+      "bathrooms": 2,
+      "description": "Residence spazioso e accogliente, ideale per grandi famiglie o gruppi di amici. Dotato di tutti i comfort e servizi, con ampi spazi esterni e vicinanza alle principali attrazioni di Alghero.",
+      "images": [
+        "https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?w=800&h=600&fit=crop",
+        "https://images.unsplash.com/photo-1560448204-e1a3c6c9f6f1?w=800&h=600&fit=crop",
+        "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=800&h=600&fit=crop"
+      ],
+      "amenities": [
+        "Wi-Fi gratuito",
+        "Aria condizionata",
+        "TV Smart",
+        "Cucina completa",
+        "Giardino",
+        "Terrazzo",
+        "Parcheggio",
+        "Lavatrice",
+        "Self check-in"
+      ],
+      "pricePerNight": 130,
+      "cancellationPolicy": "Cancellazione gratuita senza pagamento anticipato"
+    }
+  ]
+}

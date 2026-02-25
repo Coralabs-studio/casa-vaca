@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600">
+  <rect fill="#4A90E2" width="600" height="600"/>
+  <rect fill="#2c5f7f" y="480" width="600" height="120"/>
+  <rect fill="#e8a87c" x="80" y="250" width="120" height="250" rx="5"/>
+  <rect fill="#c27a50" x="80" y="200" width="120" height="50"/>
+  <polygon fill="#8B4513" points="140,150 200,200 80,200"/>
+  <rect fill="#e8a87c" x="250" y="280" width="100" height="220" rx="5"/>
+  <rect fill="#c27a50" x="250" y="240" width="100" height="40"/>
+  <polygon fill="#8B4513" points="300,200 350,240 250,240"/>
+  <rect fill="#e8a87c" x="400" y="260" width="140" height="240" rx="5"/>
+  <rect fill="#c27a50" x="400" y="210" width="140" height="50"/>
+  <polygon fill="#8B4513" points="470,160 540,210 400,210"/>
+  <rect fill="#1a4a63" x="110" y="350" width="60" height="80"/>
+  <rect fill="#1a4a63" x="280" y="380" width="40" height="60"/>
+  <rect fill="#1a4a63" x="440" y="360" width="70" height="90"/>
+  <circle fill="#ffffff" cx="140" cy="300" r="15"/>
+  <circle fill="#ffffff" cx="300" cy="330" r="12"/>
+  <circle fill="#ffffff" cx="470" cy="310" r="18"/>
+  <text x="50%" y="95%" dominant-baseline="middle" text-anchor="middle" font-family="serif" font-size="36" fill="#ffffff">Architettura storica</text>
+</svg>

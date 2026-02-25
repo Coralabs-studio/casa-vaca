@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600">
+  <defs>
+    <linearGradient id="sea" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#4A90E2;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#2c5f7f;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <rect fill="url(#sea)" width="600" height="400"/>
+  <rect fill="#F4A460" y="400" width="600" height="200"/>
+  <circle fill="#ffffff" cx="150" cy="150" r="80" opacity="0.3"/>
+  <circle fill="#ffffff" cx="450" cy="200" r="60" opacity="0.3"/>
+  <rect fill="#D2691E" x="50" y="450" width="80" height="120" rx="5"/>
+  <rect fill="#D2691E" x="200" y="470" width="60" height="100" rx="5"/>
+  <rect fill="#D2691E" x="350" y="460" width="70" height="110" rx="5"/>
+  <rect fill="#D2691E" x="480" y="440" width="90" height="130" rx="5"/>
+  <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" font-family="serif" font-size="48" fill="#ffffff" opacity="0.8">Centro Storico</text>
+</svg>
