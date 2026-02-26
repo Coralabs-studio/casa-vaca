@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formula Roulette - Case Vacanza Alghero</title>
+    <meta name="description" content="Formula Roulette: scegli le date e il budget, noi troviamo l'alloggio perfetto per te ad Alghero">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/formula-roulette.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@600;700;800;900&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+</head>
+<body>
+    <!-- Top Bar -->
+    <div class="roulette-topbar">
+        <a href="index.html" class="roulette-back">
+            <i class="ph ph-arrow-left"></i>
+            <span>Torna al sito</span>
+        </a>
+        <img src="images/logotest.png" alt="Case Vacanza Alghero" class="roulette-logo">
+    </div>
+
+    <!-- Hero Section -->
+    <section class="roulette-hero">
+        <div class="roulette-hero-bg"></div>
+        <div class="roulette-hero-content">
+            <div class="roulette-badge">
+                <i class="ph ph-shuffle"></i>
+                <span>FORMULA ROULETTE</span>
+            </div>
+            <h1>Dicci solo <span class="accent">quando</span> e <span class="accent">quanto</span></h1>
+            <p class="roulette-subtitle">Pensiamo a tutto noi. Tu scegli le date e il budget, noi ti proponiamo le migliori soluzioni disponibili ad Alghero.</p>
+        </div>
+    </section>
+
+    <!-- How it works -->
+    <section class="roulette-steps">
+        <div class="roulette-container">
+            <h2 class="roulette-section-title">Come funziona</h2>
+            <div class="steps-grid">
+                <div class="step-card">
+                    <div class="step-number">1</div>
+                    <i class="ph ph-calendar-blank"></i>
+                    <h3>Scegli le date</h3>
+                    <p>Indica il periodo del tuo soggiorno ad Alghero</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">2</div>
+                    <i class="ph ph-wallet"></i>
+                    <h3>Imposta il budget</h3>
+                    <p>Dicci quanto vuoi spendere, troviamo la soluzione ideale</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">3</div>
+                    <i class="ph ph-paper-plane-tilt"></i>
+                    <h3>Ricevi le proposte</h3>
+                    <p>Ti inviamo le migliori opzioni tra oltre 200 strutture</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Form Section -->
+    <section class="roulette-form-section">
+        <div class="roulette-container">
+            <div class="roulette-form-wrapper">
+                <div class="roulette-form-header">
+                    <i class="ph ph-shuffle"></i>
+                    <h2>Trova il tuo alloggio</h2>
+                    <p>Compila il form e riceverai le nostre proposte entro un'ora</p>
+                </div>
+                <form id="rouletteForm" class="roulette-form">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="checkin">
+                                <i class="ph ph-calendar-check"></i> Check-in
+                            </label>
+                            <input type="date" id="checkin" name="checkin" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="checkout">
+                                <i class="ph ph-calendar-x"></i> Check-out
+                            </label>
+                            <input type="date" id="checkout" name="checkout" required>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="guests">
+                                <i class="ph ph-users"></i> Ospiti
+                            </label>
+                            <select id="guests" name="guests" required>
+                                <option value="" disabled selected>Quanti siete?</option>
+                                <option value="1">1 persona</option>
+                                <option value="2">2 persone</option>
+                                <option value="3">3 persone</option>
+                                <option value="4">4 persone</option>
+                                <option value="5">5 persone</option>
+                                <option value="6">6+ persone</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="budget">
+                                <i class="ph ph-wallet"></i> Budget totale
+                            </label>
+                            <select id="budget" name="budget" required>
+                                <option value="" disabled selected>Il tuo budget</option>
+                                <option value="0-200">Fino a €200</option>
+                                <option value="200-400">€200 - €400</option>
+                                <option value="400-600">€400 - €600</option>
+                                <option value="600-1000">€600 - €1.000</option>
+                                <option value="1000+">Oltre €1.000</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group full-width">
+                            <label for="name">
+                                <i class="ph ph-user"></i> Nome
+                            </label>
+                            <input type="text" id="name" name="name" placeholder="Il tuo nome" required>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="email">
+                                <i class="ph ph-envelope-simple"></i> Email
+                            </label>
+                            <input type="email" id="email" name="email" placeholder="La tua email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">
+                                <i class="ph ph-whatsapp-logo"></i> WhatsApp
+                            </label>
+                            <input type="tel" id="phone" name="phone" placeholder="+39 ..." required>
+                        </div>
+                    </div>
+                    <div class="form-group full-width">
+                        <label for="notes">
+                            <i class="ph ph-note-pencil"></i> Note (opzionale)
+                        </label>
+                        <textarea id="notes" name="notes" rows="3" placeholder="Preferenze particolari? Es: vicino al mare, con parcheggio, animali..."></textarea>
+                    </div>
+                    <button type="submit" class="roulette-submit">
+                        <i class="ph ph-shuffle"></i>
+                        Lancia la Roulette!
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Confirmation modal -->
+    <div class="roulette-modal" id="rouletteModal">
+        <div class="roulette-modal-content">
+            <div class="roulette-modal-icon">
+                <i class="ph ph-check-circle"></i>
+            </div>
+            <h2>Richiesta inviata!</h2>
+            <p>Riceverai le nostre proposte entro un'ora su WhatsApp o email.</p>
+            <a href="index.html" class="roulette-modal-btn">Torna alla Home</a>
+        </div>
+    </div>
+
+    <!-- Footer mini -->
+    <footer class="roulette-footer">
+        <p>&copy; 2026 Case Vacanza Alghero. Tutti i diritti riservati.</p>
+    </footer>
+
+    <script>
+        // Set min date to today
+        const today = new Date().toISOString().split('T')[0];
+        document.getElementById('checkin').setAttribute('min', today);
+        document.getElementById('checkout').setAttribute('min', today);
+
+        // Update checkout min when checkin changes
+        document.getElementById('checkin').addEventListener('change', function() {
+            const checkinDate = new Date(this.value);
+            checkinDate.setDate(checkinDate.getDate() + 1);
+            const minCheckout = checkinDate.toISOString().split('T')[0];
+            document.getElementById('checkout').setAttribute('min', minCheckout);
+            if (document.getElementById('checkout').value && document.getElementById('checkout').value <= this.value) {
+                document.getElementById('checkout').value = minCheckout;
+            }
+        });
+
+        // Form submission
+        document.getElementById('rouletteForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const formData = new FormData(this);
+            const data = Object.fromEntries(formData.entries());
+            
+            // Build WhatsApp message
+            const message = `🎰 *FORMULA ROULETTE*\n\n` +
+                `👤 Nome: ${data.name}\n` +
+                `📧 Email: ${data.email}\n` +
+                `📱 Tel: ${data.phone}\n` +
+                `📅 Check-in: ${data.checkin}\n` +
+                `📅 Check-out: ${data.checkout}\n` +
+                `👥 Ospiti: ${data.guests}\n` +
+                `💰 Budget: ${data.budget}\n` +
+                `${data.notes ? '📝 Note: ' + data.notes : ''}`;
+            
+            // Open WhatsApp with the message (replace with your number)
+            const whatsappUrl = `https://wa.me/39XXXXXXXXXX?text=${encodeURIComponent(message)}`;
+            window.open(whatsappUrl, '_blank');
+            
+            // Show confirmation modal
+            document.getElementById('rouletteModal').classList.add('active');
+        });
+
+        // Close modal on click outside
+        document.getElementById('rouletteModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                this.classList.remove('active');
+            }
+        });
+    </script>
+</body>
+</html>

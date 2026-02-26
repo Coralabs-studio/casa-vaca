@@ -944,6 +944,35 @@ section {
     display: block;
 }
 
+/* Formula Roulette link style */
+.intro-feature-link {
+    cursor: pointer;
+    border-radius: 12px;
+    padding: 16px 20px !important;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(194, 122, 80, 0.25);
+    background: rgba(194, 122, 80, 0.08);
+    text-decoration: none;
+}
+
+.intro-feature-link:hover {
+    background: rgba(194, 122, 80, 0.18);
+    border-color: rgba(194, 122, 80, 0.5);
+    transform: translateY(-3px);
+}
+
+.roulette-link {
+    color: var(--brown-light);
+    font-weight: 600;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    transition: all 0.3s ease;
+}
+
+.roulette-link:hover {
+    color: var(--brown-medium);
+}
+
 .intro-feature-divider {
     width: 1px;
     height: 60px;
