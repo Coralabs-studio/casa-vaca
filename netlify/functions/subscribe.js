@@ -61,7 +61,7 @@ async function sendConfirmationEmail(email, token) {
         body: JSON.stringify({
             sender: {
                 name: 'Case Vacanza Alghero',
-                email: 'noreply@casavacanzealghero.it' // Cambia con il tuo sender verificato
+                email: 'tizianopiga858@gmail.com'
             },
             to: [{ email }],
             subject: '🎰 Conferma per girare la Ruota della Fortuna!',
