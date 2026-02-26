@@ -117,7 +117,7 @@
         <div class="intro-editorial">
             <span class="intro-eyebrow">I NOSTRI ALLOGGI AD ALGHERO</span>
             <h2 class="intro-headline">Il tuo soggiorno,<br>la nostra <span class="intro-accent">passione</span></h2>
-            <p class="intro-lead">Appartamenti, camere e residence selezionati nel cuore della Riviera del Corallo.<br>Con la <a href="formula-roulette.html" class="roulette-link">Formula Roulette</a> trovi sempre un alloggio disponibile al tuo budget.</p>
+            <p class="intro-lead">Appartamenti, camere e residence selezionati nel cuore della Riviera del Corallo.<br>Con la <a href="#" class="roulette-link" onclick="openRoulettePopup(); return false;">Formula Roulette</a> trovi sempre un alloggio disponibile al tuo budget.</p>
             <div class="intro-features">
                 <div class="intro-feature-item">
                     <i class="ph ph-house-line"></i>
@@ -134,7 +134,7 @@
                     <span>Miglior tariffa<br><small>prenotando direttamente</small></span>
                 </div>
                 <div class="intro-feature-divider"></div>
-                <a href="formula-roulette.html" class="intro-feature-item intro-feature-link">
+                <a href="#" class="intro-feature-item intro-feature-link" onclick="openRoulettePopup(); return false;">
                     <i class="ph ph-shuffle"></i>
                     <span>Formula Roulette<br><small>Sempre un alloggio al tuo budget</small></span>
                 </a>
@@ -365,6 +365,449 @@
             </svg>
         </button>
     </div>
+
+    <!-- Roulette Popup Overlay -->
+    <div class="roulette-overlay" id="rouletteOverlay">
+        <div class="roulette-popup">
+            <button class="roulette-popup-close" id="rouletteClose">
+                <i class="ph ph-x"></i>
+            </button>
+
+            <!-- Step 1: Email Gate -->
+            <div class="roulette-step" id="rouletteStep1">
+                <div class="roulette-popup-glow"></div>
+                <div class="roulette-step-content">
+                    <div class="roulette-popup-badge">
+                        <i class="ph ph-shuffle"></i>
+                        <span>FORMULA ROULETTE</span>
+                    </div>
+                    <h2>Gira la ruota<br><span class="rp-accent">e scopri il tuo vantaggio</span></h2>
+                    <p class="rp-desc">Inserisci la tua email per sbloccare la ruota della fortuna e vincere sconti e vantaggi esclusivi!</p>
+                    <form id="emailGateForm" class="rp-email-form">
+                        <div class="rp-input-wrap">
+                            <i class="ph ph-envelope-simple"></i>
+                            <input type="email" id="rouletteEmail" placeholder="La tua email..." required>
+                        </div>
+                        <button type="submit" class="rp-unlock-btn">
+                            <i class="ph ph-lock-simple-open"></i>
+                            Sblocca la Ruota
+                        </button>
+                        <p class="rp-privacy"><i class="ph ph-shield-check"></i> Niente spam, solo offerte esclusive</p>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Step 2: Wheel Spin -->
+            <div class="roulette-step hidden" id="rouletteStep2">
+                <div class="roulette-popup-glow"></div>
+                <div class="roulette-step-content">
+                    <p class="rp-wheel-intro">Clicca al centro della ruota per girarla!</p>
+                    <div class="rp-wheel-wrapper">
+                        <div class="rp-wheel-pointer">
+                            <svg width="36" height="36" viewBox="0 0 40 40">
+                                <polygon points="20,38 8,8 32,8" fill="#C27A50" stroke="#8B5A3C" stroke-width="2"/>
+                            </svg>
+                        </div>
+                        <canvas id="rpWheelCanvas" width="380" height="380"></canvas>
+                        <button class="rp-spin-btn" id="rpSpinBtn"></button>
+                        <div class="rp-leds" id="rpLeds"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Step 3: Prize + Form -->
+            <div class="roulette-step hidden" id="rouletteStep3">
+                <div class="roulette-popup-glow rp-glow-gold"></div>
+                <div class="rp-confetti" id="rpConfetti"></div>
+                <div class="roulette-step-content">
+                    <div class="rp-prize-section">
+                        <div class="rp-trophy"><i class="ph ph-trophy"></i></div>
+                        <h2 id="rpPrizeTitle">Complimenti!</h2>
+                        <p class="rp-prize-text" id="rpPrizeText"></p>
+                        <div class="rp-prize-code" id="rpPrizeCode"></div>
+                    </div>
+                    <div class="rp-prize-form">
+                        <p class="rp-form-intro">Completa con i tuoi dati per usare il vantaggio:</p>
+                        <form id="rpFullForm">
+                            <div class="rp-form-row">
+                                <div class="rp-form-group">
+                                    <label><i class="ph ph-calendar-check"></i> Check-in</label>
+                                    <input type="date" name="checkin" id="rpCheckin" required>
+                                </div>
+                                <div class="rp-form-group">
+                                    <label><i class="ph ph-calendar-x"></i> Check-out</label>
+                                    <input type="date" name="checkout" id="rpCheckout" required>
+                                </div>
+                            </div>
+                            <div class="rp-form-row">
+                                <div class="rp-form-group">
+                                    <label><i class="ph ph-users"></i> Ospiti</label>
+                                    <select name="guests" required>
+                                        <option value="" disabled selected>Quanti?</option>
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="5">5</option>
+                                        <option value="6">6+</option>
+                                    </select>
+                                </div>
+                                <div class="rp-form-group">
+                                    <label><i class="ph ph-wallet"></i> Budget</label>
+                                    <select name="budget" required>
+                                        <option value="" disabled selected>Budget</option>
+                                        <option value="0-200">Fino a €200</option>
+                                        <option value="200-400">€200-€400</option>
+                                        <option value="400-600">€400-€600</option>
+                                        <option value="600-1000">€600-€1000</option>
+                                        <option value="1000+">€1000+</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="rp-form-row">
+                                <div class="rp-form-group">
+                                    <label><i class="ph ph-user"></i> Nome</label>
+                                    <input type="text" name="name" placeholder="Il tuo nome" required>
+                                </div>
+                                <div class="rp-form-group">
+                                    <label><i class="ph ph-whatsapp-logo"></i> WhatsApp</label>
+                                    <input type="tel" name="phone" placeholder="+39..." required>
+                                </div>
+                            </div>
+                            <input type="hidden" name="email" id="rpHiddenEmail">
+                            <input type="hidden" name="prize" id="rpHiddenPrize">
+                            <button type="submit" class="rp-submit-btn">
+                                <i class="ph ph-paper-plane-tilt"></i>
+                                Invia e usa il tuo vantaggio
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Roulette Popup CSS -->
+    <link rel="stylesheet" href="css/roulette-popup.css">
+
+    <!-- Roulette Popup JS -->
+    <script>
+    // ============================================
+    // ROULETTE POPUP
+    // ============================================
+    (function() {
+        const overlay = document.getElementById('rouletteOverlay');
+        const step1 = document.getElementById('rouletteStep1');
+        const step2 = document.getElementById('rouletteStep2');
+        const step3 = document.getElementById('rouletteStep3');
+        let userEmail = '';
+        let wonPrize = null;
+
+        // Open / Close
+        window.openRoulettePopup = function() {
+            overlay.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        };
+
+        document.getElementById('rouletteClose').addEventListener('click', function() {
+            overlay.classList.remove('active');
+            document.body.style.overflow = '';
+        });
+
+        overlay.addEventListener('click', function(e) {
+            if (e.target === overlay) {
+                overlay.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+        });
+
+        // Step 1: Email gate
+        document.getElementById('emailGateForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            userEmail = document.getElementById('rouletteEmail').value;
+            document.getElementById('rpHiddenEmail').value = userEmail;
+
+            step1.classList.add('hidden');
+            step2.classList.remove('hidden');
+            initWheel();
+        });
+
+        // ============================================
+        // WHEEL ENGINE
+        // ============================================
+        const segments = [
+            { label: '10%\nSCONTO',   color: '#C27A50', prize: '10% di sconto sul soggiorno!', code: 'ROULETTE10' },
+            { label: 'UPGRADE\nGRATIS', color: '#1a3a52', prize: 'Upgrade gratuito dell\'alloggio!', code: 'UPGRADE' },
+            { label: '15%\nSCONTO',   color: '#8B5A3C', prize: '15% di sconto sul soggiorno!', code: 'ROULETTE15' },
+            { label: 'WELCOME\nKIT',   color: '#2a4a62', prize: 'Welcome kit sardo in omaggio!', code: 'WELCOME' },
+            { label: 'LATE\nCHECKOUT', color: '#A67C52', prize: 'Late checkout gratuito!', code: 'LATE' },
+            { label: '20%\nSCONTO',   color: '#0a1e2e', prize: '20% di sconto sul soggiorno!', code: 'ROULETTE20' },
+            { label: 'SET\nSPIAGGIA',  color: '#C27A50', prize: 'Set spiaggia incluso!', code: 'SPIAGGIA' },
+            { label: 'EARLY\nCHECKIN', color: '#1a3a52', prize: 'Early check-in gratuito!', code: 'EARLY' },
+        ];
+
+        const riggedResults = [0, 2, 4, 5, 6];
+        let canvas, ctx, centerX, centerY, radius, segAngle;
+        let currentAngle = 0, isSpinning = false, hasSpun = false;
+
+        function initWheel() {
+            canvas = document.getElementById('rpWheelCanvas');
+            ctx = canvas.getContext('2d');
+            centerX = canvas.width / 2;
+            centerY = canvas.height / 2;
+            radius = 175;
+            segAngle = (2 * Math.PI) / segments.length;
+
+            createLeds();
+            drawWheel();
+            document.getElementById('rpSpinBtn').addEventListener('click', spinWheel);
+        }
+
+        function createLeds() {
+            const container = document.getElementById('rpLeds');
+            container.innerHTML = '';
+            const count = 20;
+            for (let i = 0; i < count; i++) {
+                const led = document.createElement('div');
+                led.className = 'rp-led';
+                const angle = (360 / count) * i - 90;
+                const rad = angle * Math.PI / 180;
+                const dist = 200;
+                led.style.left = (centerX + dist * Math.cos(rad)) + 'px';
+                led.style.top = (centerY + dist * Math.sin(rad)) + 'px';
+                led.style.animationDelay = (i * 0.1) + 's';
+                container.appendChild(led);
+            }
+        }
+
+        function lightenColor(hex, amt) {
+            const num = parseInt(hex.replace('#', ''), 16);
+            const r = Math.min(255, (num >> 16) + amt);
+            const g = Math.min(255, ((num >> 8) & 0xFF) + amt);
+            const b = Math.min(255, (num & 0xFF) + amt);
+            return `rgb(${r},${g},${b})`;
+        }
+
+        function drawWheel() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+            // Outer ring
+            const ringGrad = ctx.createLinearGradient(0, 0, canvas.width, canvas.height);
+            ringGrad.addColorStop(0, '#C27A50');
+            ringGrad.addColorStop(0.3, '#F5E6D3');
+            ringGrad.addColorStop(0.5, '#C27A50');
+            ringGrad.addColorStop(0.7, '#8B5A3C');
+            ringGrad.addColorStop(1, '#C27A50');
+            ctx.beginPath();
+            ctx.arc(centerX, centerY, radius + 4, 0, 2 * Math.PI);
+            ctx.fillStyle = ringGrad;
+            ctx.fill();
+
+            // Segments
+            segments.forEach((seg, i) => {
+                const start = currentAngle + i * segAngle;
+                const end = start + segAngle;
+
+                const mid = start + segAngle / 2;
+                const gx = centerX + radius * 0.5 * Math.cos(mid);
+                const gy = centerY + radius * 0.5 * Math.sin(mid);
+                const sg = ctx.createRadialGradient(centerX, centerY, 30, gx, gy, radius);
+                sg.addColorStop(0, lightenColor(seg.color, 20));
+                sg.addColorStop(1, seg.color);
+
+                ctx.beginPath();
+                ctx.moveTo(centerX, centerY);
+                ctx.arc(centerX, centerY, radius, start, end);
+                ctx.closePath();
+                ctx.fillStyle = sg;
+                ctx.fill();
+
+                // Border
+                ctx.beginPath();
+                ctx.moveTo(centerX, centerY);
+                ctx.lineTo(centerX + radius * Math.cos(start), centerY + radius * Math.sin(start));
+                ctx.strokeStyle = 'rgba(255,255,255,0.12)';
+                ctx.lineWidth = 1.5;
+                ctx.stroke();
+
+                // Text
+                ctx.save();
+                ctx.translate(centerX, centerY);
+                ctx.rotate(start + segAngle / 2);
+                ctx.textAlign = 'center';
+                ctx.textBaseline = 'middle';
+                ctx.shadowColor = 'rgba(0,0,0,0.5)';
+                ctx.shadowBlur = 4;
+                const lines = seg.label.split('\n');
+                const td = radius * 0.62;
+                lines.forEach((line, li) => {
+                    const yOff = (li - (lines.length - 1) / 2) * 16;
+                    ctx.font = li === 0 ? 'bold 14px Poppins, sans-serif' : 'bold 11px Montserrat, sans-serif';
+                    ctx.fillStyle = '#fff';
+                    ctx.fillText(line, td, yOff);
+                });
+                ctx.restore();
+            });
+
+            // Center hub
+            ctx.beginPath();
+            ctx.arc(centerX, centerY, 44, 0, 2 * Math.PI);
+            ctx.fillStyle = '#0a1e2e';
+            ctx.fill();
+
+            const hubGrad = ctx.createRadialGradient(centerX - 6, centerY - 6, 4, centerX, centerY, 40);
+            hubGrad.addColorStop(0, '#e8a468');
+            hubGrad.addColorStop(0.5, '#C27A50');
+            hubGrad.addColorStop(1, '#6b3a20');
+            ctx.beginPath();
+            ctx.arc(centerX, centerY, 38, 0, 2 * Math.PI);
+            ctx.fillStyle = hubGrad;
+            ctx.fill();
+
+            ctx.beginPath();
+            ctx.arc(centerX, centerY, 34, 0, 2 * Math.PI);
+            ctx.strokeStyle = 'rgba(255,255,255,0.2)';
+            ctx.lineWidth = 1.5;
+            ctx.stroke();
+
+            // Inner dot
+            ctx.beginPath();
+            ctx.arc(centerX, centerY, 14, 0, 2 * Math.PI);
+            ctx.fillStyle = '#0a1e2e';
+            ctx.fill();
+            const dg = ctx.createRadialGradient(centerX - 2, centerY - 2, 1, centerX, centerY, 12);
+            dg.addColorStop(0, '#C27A50');
+            dg.addColorStop(1, '#6b3a20');
+            ctx.beginPath();
+            ctx.arc(centerX, centerY, 11, 0, 2 * Math.PI);
+            ctx.fillStyle = dg;
+            ctx.fill();
+
+            // GIRA text
+            if (!hasSpun) {
+                ctx.save();
+                ctx.font = 'bold 11px Poppins, sans-serif';
+                ctx.fillStyle = '#fff';
+                ctx.textAlign = 'center';
+                ctx.textBaseline = 'middle';
+                ctx.fillText('GIRA!', centerX, centerY);
+                ctx.restore();
+            }
+        }
+
+        function spinWheel() {
+            if (isSpinning || hasSpun) return;
+            isSpinning = true;
+            hasSpun = true;
+
+            document.querySelector('.rp-wheel-wrapper').classList.add('is-spinning');
+
+            const targetIndex = riggedResults[Math.floor(Math.random() * riggedResults.length)];
+            const targetMid = targetIndex * segAngle + segAngle / 2;
+            const targetFinal = -Math.PI / 2 - targetMid;
+            const fullSpins = 6 + Math.floor(Math.random() * 3);
+            const totalRotation = fullSpins * 2 * Math.PI + (targetFinal - (currentAngle % (2 * Math.PI)));
+
+            const startAngle = currentAngle;
+            const startTime = performance.now();
+            const duration = 5000 + Math.random() * 2000;
+
+            let lastSeg = -1;
+
+            function easeOut(t) { return 1 - Math.pow(1 - t, 4); }
+
+            function animate(time) {
+                const elapsed = time - startTime;
+                const progress = Math.min(elapsed / duration, 1);
+                currentAngle = startAngle + totalRotation * easeOut(progress);
+                drawWheel();
+
+                const norm = ((currentAngle % (2 * Math.PI)) + 2 * Math.PI) % (2 * Math.PI);
+                const curSeg = Math.floor(norm / segAngle) % segments.length;
+                if (curSeg !== lastSeg) {
+                    lastSeg = curSeg;
+                    const ptr = document.querySelector('.rp-wheel-pointer');
+                    ptr.classList.add('tick');
+                    setTimeout(() => ptr.classList.remove('tick'), 80);
+                }
+
+                if (progress < 1) {
+                    requestAnimationFrame(animate);
+                } else {
+                    isSpinning = false;
+                    document.querySelector('.rp-wheel-wrapper').classList.remove('is-spinning');
+                    wonPrize = segments[targetIndex];
+                    setTimeout(() => showPrizeStep(wonPrize), 500);
+                }
+            }
+            requestAnimationFrame(animate);
+        }
+
+        function showPrizeStep(prize) {
+            document.getElementById('rpPrizeTitle').textContent = '\uD83C\uDF89 Complimenti!';
+            document.getElementById('rpPrizeText').textContent = 'Hai vinto: ' + prize.prize;
+            document.getElementById('rpPrizeCode').innerHTML = 'Codice: <strong>' + prize.code + '</strong>';
+            document.getElementById('rpHiddenPrize').value = prize.label.replace('\n', ' ') + ' - ' + prize.code;
+
+            step2.classList.add('hidden');
+            step3.classList.remove('hidden');
+            createConfetti();
+
+            const today = new Date().toISOString().split('T')[0];
+            document.getElementById('rpCheckin').setAttribute('min', today);
+            document.getElementById('rpCheckout').setAttribute('min', today);
+            document.getElementById('rpCheckin').addEventListener('change', function() {
+                const d = new Date(this.value);
+                d.setDate(d.getDate() + 1);
+                const min = d.toISOString().split('T')[0];
+                document.getElementById('rpCheckout').setAttribute('min', min);
+            });
+        }
+
+        function createConfetti() {
+            const c = document.getElementById('rpConfetti');
+            c.innerHTML = '';
+            const colors = ['#C27A50', '#F5E6D3', '#8B5A3C', '#FFD700', '#ff6b6b', '#48dbfb'];
+            for (let i = 0; i < 50; i++) {
+                const p = document.createElement('div');
+                p.className = 'rp-confetti-piece';
+                p.style.setProperty('--x', Math.random() * 100 + '%');
+                p.style.setProperty('--delay', Math.random() * 0.5 + 's');
+                p.style.setProperty('--rot', (Math.random() * 720 - 360) + 'deg');
+                p.style.setProperty('--color', colors[Math.floor(Math.random() * colors.length)]);
+                p.style.setProperty('--size', (4 + Math.random() * 7) + 'px');
+                p.style.setProperty('--drift', (Math.random() * 160 - 80) + 'px');
+                c.appendChild(p);
+            }
+        }
+
+        // Final form submit
+        document.getElementById('rpFullForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const fd = new FormData(this);
+            const d = Object.fromEntries(fd.entries());
+
+            const msg = `\uD83C\uDFB0 *FORMULA ROULETTE*\n\n` +
+                `\uD83C\uDFC6 Vantaggio: ${d.prize}\n` +
+                `\uD83D\uDC64 Nome: ${d.name}\n\uD83D\uDCE7 Email: ${d.email}\n\uD83D\uDCF1 Tel: ${d.phone}\n` +
+                `\uD83D\uDCC5 Check-in: ${d.checkin}\n\uD83D\uDCC5 Check-out: ${d.checkout}\n` +
+                `\uD83D\uDC65 Ospiti: ${d.guests}\n\uD83D\uDCB0 Budget: ${d.budget}`;
+
+            window.open(`https://wa.me/39XXXXXXXXXX?text=${encodeURIComponent(msg)}`, '_blank');
+
+            // Show success
+            step3.querySelector('.roulette-step-content').innerHTML = `
+                <div class="rp-success">
+                    <i class="ph ph-check-circle"></i>
+                    <h2>Richiesta inviata!</h2>
+                    <p>Ti contatteremo entro un'ora con le migliori proposte.</p>
+                    <button class="rp-close-final" onclick="document.getElementById('rouletteOverlay').classList.remove('active'); document.body.style.overflow='';">
+                        Torna al sito
+                    </button>
+                </div>`;
+        });
+    })();
+    </script>
 
     <!-- Leaflet JS -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
