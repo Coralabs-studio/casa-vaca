@@ -61,7 +61,7 @@ async function sendConfirmationEmail(email, token) {
         body: JSON.stringify({
             sender: {
                 name: 'Case Vacanza Alghero',
-                email: 'tizianopiga858@gmail.com'
+                email: 'tizianopiga858@gmail.com' // Deve essere verificato su Brevo
             },
             to: [{ email }],
             subject: '🎰 Conferma per girare la Ruota della Fortuna!',
@@ -100,7 +100,12 @@ async function sendConfirmationEmail(email, token) {
         })
     });
     
-    return response.ok;
+    if (!response.ok) {
+        const errBody = await response.text();
+        console.error('Brevo email error:', response.status, errBody);
+        throw new Error(`Brevo ${response.status}: ${errBody}`);
+    }
+    return true;
 }
 
 // Add confirmed contact to Brevo list
@@ -157,9 +162,8 @@ exports.handler = async (event) => {
             }
             
             const confirmToken = createToken(email);
-            const sent = await sendConfirmationEmail(email, confirmToken);
-            
-            if (sent) {
+            try {
+                await sendConfirmationEmail(email, confirmToken);
                 return { 
                     statusCode: 200, 
                     headers, 
@@ -168,11 +172,12 @@ exports.handler = async (event) => {
                         message: 'Email di conferma inviata!' 
                     }) 
                 };
-            } else {
+            } catch(emailErr) {
+                console.error('Send email failed:', emailErr.message);
                 return { 
                     statusCode: 500, 
                     headers, 
-                    body: JSON.stringify({ error: 'Errore invio email' }) 
+                    body: JSON.stringify({ error: 'Errore invio email: ' + emailErr.message }) 
                 };
             }
         }
