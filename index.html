@@ -397,6 +397,18 @@
                 </div>
             </div>
 
+            <!-- Step 1.5: Email Confirmation Pending -->
+            <div class="roulette-step hidden" id="rouletteStepConfirm">
+                <div class="roulette-popup-glow"></div>
+                <div class="roulette-step-content" style="text-align: center; padding: 2rem;">
+                    <div style="font-size: 4rem; margin-bottom: 1rem;">📧</div>
+                    <h2 style="color: #C27A50; margin-bottom: 1rem;">Controlla la tua email!</h2>
+                    <p style="color: #d4c4b0; margin-bottom: 1rem;" id="confirmEmailText">Ti abbiamo inviato un'email di conferma.</p>
+                    <p style="color: #a99a8a; font-size: 0.9rem;">Clicca sul link nell'email per sbloccare la ruota della fortuna!</p>
+                    <p style="color: #7a6a5a; font-size: 0.8rem; margin-top: 1.5rem;"><i class="ph ph-info"></i> Controlla anche la cartella spam</p>
+                </div>
+            </div>
+
             <!-- Step 2: Wheel Spin -->
             <div class="roulette-step hidden" id="rouletteStep2">
                 <div class="roulette-popup-glow"></div>
@@ -498,6 +510,7 @@
     (function() {
         const overlay = document.getElementById('rouletteOverlay');
         const step1 = document.getElementById('rouletteStep1');
+        const stepConfirm = document.getElementById('rouletteStepConfirm');
         const step2 = document.getElementById('rouletteStep2');
         const step3 = document.getElementById('rouletteStep3');
         let userEmail = '';
@@ -521,29 +534,86 @@
             }
         });
 
-        // Step 1: Email gate
-        document.getElementById('emailGateForm').addEventListener('submit', function(e) {
+        // Step 1: Email gate with Double Opt-In
+        document.getElementById('emailGateForm').addEventListener('submit', async function(e) {
             e.preventDefault();
             userEmail = document.getElementById('rouletteEmail').value;
             document.getElementById('rpHiddenEmail').value = userEmail;
-
-            step1.classList.add('hidden');
-            step2.classList.remove('hidden');
-            initWheel();
+            
+            const submitBtn = this.querySelector('button');
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = '<i class="ph ph-circle-notch ph-spin"></i> Invio...';
+            
+            try {
+                const response = await fetch('/.netlify/functions/subscribe', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ action: 'subscribe', email: userEmail })
+                });
+                
+                const data = await response.json();
+                
+                if (data.success) {
+                    document.getElementById('confirmEmailText').textContent = 
+                        'Ti abbiamo inviato un\'email a ' + userEmail;
+                    step1.classList.add('hidden');
+                    stepConfirm.classList.remove('hidden');
+                } else {
+                    alert(data.error || 'Errore, riprova.');
+                    submitBtn.disabled = false;
+                    submitBtn.innerHTML = '<i class="ph ph-paper-plane-tilt"></i> Gira la Ruota';
+                }
+            } catch (err) {
+                alert('Errore di connessione, riprova.');
+                submitBtn.disabled = false;
+                submitBtn.innerHTML = '<i class="ph ph-paper-plane-tilt"></i> Gira la Ruota';
+            }
         });
+        
+        // Check for confirmation token on page load
+        (async function checkConfirmation() {
+            const params = new URLSearchParams(window.location.search);
+            const token = params.get('confirm');
+            if (!token) return;
+            
+            try {
+                const response = await fetch('/.netlify/functions/subscribe', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ action: 'confirm', token: token })
+                });
+                
+                const data = await response.json();
+                
+                if (data.success) {
+                    // Clean URL
+                    window.history.replaceState({}, '', window.location.pathname);
+                    // Open popup directly to wheel
+                    userEmail = data.email || '';
+                    document.getElementById('rpHiddenEmail').value = userEmail;
+                    step1.classList.add('hidden');
+                    step2.classList.remove('hidden');
+                    overlay.classList.add('active');
+                    document.body.style.overflow = 'hidden';
+                    initWheel();
+                }
+            } catch (err) {
+                console.error('Confirmation error:', err);
+            }
+        })();
 
         // ============================================
         // WHEEL ENGINE
         // ============================================
         const segments = [
-            { label: '10%\nSCONTO',   color: '#C27A50', prize: '10% di sconto sul soggiorno!', code: 'ROULETTE10' },
-            { label: 'UPGRADE\nGRATIS', color: '#1a3a52', prize: 'Upgrade gratuito dell\'alloggio!', code: 'UPGRADE' },
-            { label: '15%\nSCONTO',   color: '#8B5A3C', prize: '15% di sconto sul soggiorno!', code: 'ROULETTE15' },
-            { label: 'WELCOME\nKIT',   color: '#2a4a62', prize: 'Welcome kit sardo in omaggio!', code: 'WELCOME' },
-            { label: 'LATE\nCHECKOUT', color: '#A67C52', prize: 'Late checkout gratuito!', code: 'LATE' },
-            { label: '20%\nSCONTO',   color: '#0a1e2e', prize: '20% di sconto sul soggiorno!', code: 'ROULETTE20' },
-            { label: 'SET\nSPIAGGIA',  color: '#C27A50', prize: 'Set spiaggia incluso!', code: 'SPIAGGIA' },
-            { label: 'EARLY\nCHECKIN', color: '#1a3a52', prize: 'Early check-in gratuito!', code: 'EARLY' },
+            { label: '5%\nSCONTO',     color: '#C27A50', prize: '5% di sconto sul soggiorno!', code: 'ROULETTE5' },
+            { label: 'WELCOME\nKIT',   color: '#1a3a52', prize: 'Welcome kit sardo in omaggio!', code: 'WELCOME' },
+            { label: '10%\nSCONTO',    color: '#8B5A3C', prize: '10% di sconto sul soggiorno!', code: 'ROULETTE10' },
+            { label: 'LATE\n14:00',    color: '#2a4a62', prize: 'Late checkout fino alle 14:00!', code: 'LATE14' },
+            { label: 'EARLY\n12:00',   color: '#A67C52', prize: 'Early check-in dalle 12:00!', code: 'EARLY12' },
+            { label: '7%\nSCONTO',     color: '#0a1e2e', prize: '7% di sconto sul soggiorno!', code: 'ROULETTE7' },
+            { label: 'LATE\n13:00',    color: '#C27A50', prize: 'Late checkout fino alle 13:00!', code: 'LATE13' },
+            { label: 'EARLY\n13:00',   color: '#1a3a52', prize: 'Early check-in dalle 13:00!', code: 'EARLY13' },
         ];
 
         const riggedResults = [0, 2, 4, 5, 6];
