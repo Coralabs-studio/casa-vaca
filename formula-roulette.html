@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Formula Roulette - Case Vacanza Alghero</title>
-    <meta name="description" content="Formula Roulette: scegli le date e il budget, noi troviamo l'alloggio perfetto per te ad Alghero">
+    <meta name="description" content="Formula Roulette: gira la ruota, scegli le date e il budget. Noi troviamo l'alloggio perfetto per te ad Alghero!">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/formula-roulette.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -12,7 +12,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@600;700;800;900&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
 </head>
-<body>
+<body class="roulette-body">
     <!-- Top Bar -->
     <div class="roulette-topbar">
         <a href="index.html" class="roulette-back">
@@ -24,14 +24,65 @@
 
     <!-- Hero Section -->
     <section class="roulette-hero">
-        <div class="roulette-hero-bg"></div>
+        <div class="roulette-hero-bg">
+            <div class="roulette-particles" id="particles"></div>
+        </div>
         <div class="roulette-hero-content">
             <div class="roulette-badge">
                 <i class="ph ph-shuffle"></i>
                 <span>FORMULA ROULETTE</span>
             </div>
-            <h1>Dicci solo <span class="accent">quando</span> e <span class="accent">quanto</span></h1>
-            <p class="roulette-subtitle">Pensiamo a tutto noi. Tu scegli le date e il budget, noi ti proponiamo le migliori soluzioni disponibili ad Alghero.</p>
+            <h1>Gira la ruota<br><span class="accent">e scopri il tuo vantaggio</span></h1>
+            <p class="roulette-subtitle">Tenta la fortuna! Poi dicci quando vuoi venire e il tuo budget.<br>Pensiamo a tutto noi tra oltre 200 strutture ad Alghero.</p>
+            <a href="#wheel-section" class="hero-cta-btn">
+                <i class="ph ph-arrow-down"></i>
+                Gira la Ruota
+            </a>
+        </div>
+    </section>
+
+    <!-- Wheel Section -->
+    <section id="wheel-section" class="wheel-section">
+        <div class="roulette-container">
+            <h2 class="roulette-section-title">Tenta la <span class="accent">fortuna</span></h2>
+            <p class="wheel-subtitle">Clicca il pulsante e scopri quale vantaggio esclusivo ti riserviamo!</p>
+            
+            <div class="wheel-wrapper">
+                <!-- Pointer -->
+                <div class="wheel-pointer">
+                    <svg width="40" height="40" viewBox="0 0 40 40">
+                        <polygon points="20,38 8,8 32,8" fill="#C27A50" stroke="#8B5A3C" stroke-width="2"/>
+                    </svg>
+                </div>
+                
+                <!-- The Wheel -->
+                <canvas id="wheelCanvas" width="440" height="440"></canvas>
+                
+                <!-- Spin Button (center) -->
+                <button class="spin-btn" id="spinBtn">
+                    <span class="spin-btn-text">GIRA!</span>
+                </button>
+
+                <!-- Outer LEDs -->
+                <div class="wheel-leds" id="wheelLeds"></div>
+            </div>
+
+            <!-- Prize Result -->
+            <div class="prize-result" id="prizeResult">
+                <div class="prize-confetti" id="prizeConfetti"></div>
+                <div class="prize-card">
+                    <div class="prize-icon">
+                        <i class="ph ph-trophy"></i>
+                    </div>
+                    <h3 class="prize-title" id="prizeTitle">Complimenti!</h3>
+                    <p class="prize-text" id="prizeText"></p>
+                    <p class="prize-code" id="prizeCode"></p>
+                    <a href="#form-section" class="prize-cta">
+                        <i class="ph ph-arrow-down"></i>
+                        Usa il tuo vantaggio ora!
+                    </a>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -42,32 +93,43 @@
             <div class="steps-grid">
                 <div class="step-card">
                     <div class="step-number">1</div>
-                    <i class="ph ph-calendar-blank"></i>
-                    <h3>Scegli le date</h3>
-                    <p>Indica il periodo del tuo soggiorno ad Alghero</p>
+                    <div class="step-icon-wrap">
+                        <i class="ph ph-circle-notch"></i>
+                    </div>
+                    <h3>Gira la Ruota</h3>
+                    <p>Tenta la fortuna e scopri il tuo vantaggio esclusivo</p>
                 </div>
+                <div class="step-arrow"><i class="ph ph-arrow-right"></i></div>
                 <div class="step-card">
                     <div class="step-number">2</div>
-                    <i class="ph ph-wallet"></i>
-                    <h3>Imposta il budget</h3>
-                    <p>Dicci quanto vuoi spendere, troviamo la soluzione ideale</p>
+                    <div class="step-icon-wrap">
+                        <i class="ph ph-calendar-blank"></i>
+                    </div>
+                    <h3>Scegli date e budget</h3>
+                    <p>Compila il form con le tue preferenze di soggiorno</p>
                 </div>
+                <div class="step-arrow"><i class="ph ph-arrow-right"></i></div>
                 <div class="step-card">
                     <div class="step-number">3</div>
-                    <i class="ph ph-paper-plane-tilt"></i>
-                    <h3>Ricevi le proposte</h3>
-                    <p>Ti inviamo le migliori opzioni tra oltre 200 strutture</p>
+                    <div class="step-icon-wrap">
+                        <i class="ph ph-paper-plane-tilt"></i>
+                    </div>
+                    <h3>Ricevi proposte</h3>
+                    <p>Ti contattiamo entro 1 ora con le migliori opzioni</p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Form Section -->
-    <section class="roulette-form-section">
+    <section id="form-section" class="roulette-form-section">
         <div class="roulette-container">
             <div class="roulette-form-wrapper">
                 <div class="roulette-form-header">
-                    <i class="ph ph-shuffle"></i>
+                    <div class="form-header-badge" id="formPrizeBadge" style="display:none;">
+                        <i class="ph ph-trophy"></i>
+                        <span id="formPrizeText">Il tuo vantaggio</span>
+                    </div>
                     <h2>Trova il tuo alloggio</h2>
                     <p>Compila il form e riceverai le nostre proposte entro un'ora</p>
                 </div>
@@ -143,9 +205,10 @@
                         </label>
                         <textarea id="notes" name="notes" rows="3" placeholder="Preferenze particolari? Es: vicino al mare, con parcheggio, animali..."></textarea>
                     </div>
+                    <input type="hidden" id="prizeWon" name="prize" value="">
                     <button type="submit" class="roulette-submit">
-                        <i class="ph ph-shuffle"></i>
-                        Lancia la Roulette!
+                        <i class="ph ph-paper-plane-tilt"></i>
+                        Invia la richiesta
                     </button>
                 </form>
             </div>
@@ -166,58 +229,352 @@
 
     <!-- Footer mini -->
     <footer class="roulette-footer">
-        <p>&copy; 2026 Case Vacanza Alghero. Tutti i diritti riservati.</p>
+        <p>&copy; 2026 Case Vacanza Alghero · Tutti i diritti riservati</p>
     </footer>
 
     <script>
-        // Set min date to today
-        const today = new Date().toISOString().split('T')[0];
-        document.getElementById('checkin').setAttribute('min', today);
-        document.getElementById('checkout').setAttribute('min', today);
+    // ============================================
+    // SPINNING WHEEL
+    // ============================================
 
-        // Update checkout min when checkin changes
-        document.getElementById('checkin').addEventListener('change', function() {
-            const checkinDate = new Date(this.value);
-            checkinDate.setDate(checkinDate.getDate() + 1);
-            const minCheckout = checkinDate.toISOString().split('T')[0];
-            document.getElementById('checkout').setAttribute('min', minCheckout);
-            if (document.getElementById('checkout').value && document.getElementById('checkout').value <= this.value) {
-                document.getElementById('checkout').value = minCheckout;
-            }
+    const segments = [
+        { label: '10%\nSCONTO',     color: '#C27A50', prize: '10% di sconto sul soggiorno!', code: 'ROULETTE10' },
+        { label: 'UPGRADE\nGRATIS',  color: '#1a3a52', prize: 'Upgrade gratuito dell\'alloggio!', code: 'UPGRADE' },
+        { label: '15%\nSCONTO',     color: '#8B5A3C', prize: '15% di sconto sul soggiorno!', code: 'ROULETTE15' },
+        { label: 'WELCOME\nKIT',     color: '#2a4a62', prize: 'Welcome kit sardo in omaggio!', code: 'WELCOME' },
+        { label: 'LATE\nCHECKOUT',   color: '#A67C52', prize: 'Late checkout gratuito fino alle 14!', code: 'LATE' },
+        { label: '20%\nSCONTO',     color: '#0a1e2e', prize: '20% di sconto sul soggiorno!', code: 'ROULETTE20' },
+        { label: 'SET\nSPIAGGIA',    color: '#C27A50', prize: 'Set spiaggia ombrellone + lettini incluso!', code: 'SPIAGGIA' },
+        { label: 'EARLY\nCHECKIN',   color: '#1a3a52', prize: 'Early check-in dalle 12 gratuito!', code: 'EARLY' },
+    ];
+
+    // Rigged: always lands on good results
+    const riggedResults = [0, 2, 4, 5, 6];
+
+    const canvas = document.getElementById('wheelCanvas');
+    const ctx = canvas.getContext('2d');
+    const spinBtn = document.getElementById('spinBtn');
+    const prizeResult = document.getElementById('prizeResult');
+
+    const centerX = canvas.width / 2;
+    const centerY = canvas.height / 2;
+    const radius = 200;
+    const segAngle = (2 * Math.PI) / segments.length;
+
+    let currentAngle = 0;
+    let isSpinning = false;
+    let hasSpun = false;
+
+    // Create LED dots around wheel
+    function createLeds() {
+        const container = document.getElementById('wheelLeds');
+        const ledCount = 24;
+        for (let i = 0; i < ledCount; i++) {
+            const led = document.createElement('div');
+            led.className = 'led';
+            const angle = (360 / ledCount) * i - 90;
+            const rad = angle * Math.PI / 180;
+            const dist = 232;
+            led.style.left = (centerX + dist * Math.cos(rad)) + 'px';
+            led.style.top = (centerY + dist * Math.sin(rad)) + 'px';
+            led.style.animationDelay = (i * 0.08) + 's';
+            container.appendChild(led);
+        }
+    }
+
+    function drawWheel() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        
+        // Shadow under wheel
+        ctx.save();
+        ctx.beginPath();
+        ctx.arc(centerX, centerY, radius + 5, 0, 2 * Math.PI);
+        ctx.shadowColor = 'rgba(0,0,0,0.4)';
+        ctx.shadowBlur = 40;
+        ctx.shadowOffsetY = 5;
+        ctx.fillStyle = 'rgba(0,0,0,0)';
+        ctx.fill();
+        ctx.restore();
+
+        // Outer metallic ring
+        const ringGrad = ctx.createLinearGradient(0, 0, canvas.width, canvas.height);
+        ringGrad.addColorStop(0, '#C27A50');
+        ringGrad.addColorStop(0.3, '#F5E6D3');
+        ringGrad.addColorStop(0.5, '#C27A50');
+        ringGrad.addColorStop(0.7, '#8B5A3C');
+        ringGrad.addColorStop(1, '#C27A50');
+        
+        ctx.beginPath();
+        ctx.arc(centerX, centerY, radius + 4, 0, 2 * Math.PI);
+        ctx.fillStyle = ringGrad;
+        ctx.fill();
+
+        // Draw segments
+        segments.forEach((seg, i) => {
+            const startAngle = currentAngle + i * segAngle;
+            const endAngle = startAngle + segAngle;
+
+            // Gradient per segment
+            const midAngle = startAngle + segAngle / 2;
+            const gx = centerX + radius * 0.5 * Math.cos(midAngle);
+            const gy = centerY + radius * 0.5 * Math.sin(midAngle);
+            const segGrad = ctx.createRadialGradient(centerX, centerY, 30, gx, gy, radius);
+            segGrad.addColorStop(0, lightenColor(seg.color, 20));
+            segGrad.addColorStop(1, seg.color);
+
+            ctx.beginPath();
+            ctx.moveTo(centerX, centerY);
+            ctx.arc(centerX, centerY, radius, startAngle, endAngle);
+            ctx.closePath();
+            ctx.fillStyle = segGrad;
+            ctx.fill();
+
+            // Border between segments
+            ctx.beginPath();
+            ctx.moveTo(centerX, centerY);
+            ctx.lineTo(
+                centerX + radius * Math.cos(startAngle),
+                centerY + radius * Math.sin(startAngle)
+            );
+            ctx.strokeStyle = 'rgba(255,255,255,0.15)';
+            ctx.lineWidth = 1.5;
+            ctx.stroke();
+
+            // Text
+            ctx.save();
+            ctx.translate(centerX, centerY);
+            ctx.rotate(startAngle + segAngle / 2);
+            ctx.textAlign = 'center';
+            ctx.textBaseline = 'middle';
+            
+            const lines = seg.label.split('\n');
+            const textDist = radius * 0.62;
+            
+            // Text shadow
+            ctx.shadowColor = 'rgba(0,0,0,0.5)';
+            ctx.shadowBlur = 4;
+            
+            lines.forEach((line, li) => {
+                const yOff = (li - (lines.length - 1) / 2) * 17;
+                ctx.font = li === 0 ? 'bold 16px Poppins, sans-serif' : 'bold 12px Montserrat, sans-serif';
+                ctx.fillStyle = '#fff';
+                ctx.fillText(line, textDist, yOff);
+            });
+            ctx.restore();
         });
 
-        // Form submission
-        document.getElementById('rouletteForm').addEventListener('submit', function(e) {
+        // Inner decorative ring
+        ctx.beginPath();
+        ctx.arc(centerX, centerY, 52, 0, 2 * Math.PI);
+        ctx.fillStyle = '#0a1e2e';
+        ctx.fill();
+
+        // Center hub gradient
+        const hubGrad = ctx.createRadialGradient(centerX - 8, centerY - 8, 5, centerX, centerY, 48);
+        hubGrad.addColorStop(0, '#e8a468');
+        hubGrad.addColorStop(0.5, '#C27A50');
+        hubGrad.addColorStop(1, '#6b3a20');
+        
+        ctx.beginPath();
+        ctx.arc(centerX, centerY, 46, 0, 2 * Math.PI);
+        ctx.fillStyle = hubGrad;
+        ctx.fill();
+
+        // Center ring
+        ctx.beginPath();
+        ctx.arc(centerX, centerY, 42, 0, 2 * Math.PI);
+        ctx.strokeStyle = 'rgba(255,255,255,0.25)';
+        ctx.lineWidth = 1.5;
+        ctx.stroke();
+
+        // Inner hub
+        ctx.beginPath();
+        ctx.arc(centerX, centerY, 18, 0, 2 * Math.PI);
+        ctx.fillStyle = '#0a1e2e';
+        ctx.fill();
+        
+        ctx.beginPath();
+        ctx.arc(centerX, centerY, 15, 0, 2 * Math.PI);
+        const dotGrad = ctx.createRadialGradient(centerX - 3, centerY - 3, 2, centerX, centerY, 15);
+        dotGrad.addColorStop(0, '#C27A50');
+        dotGrad.addColorStop(1, '#6b3a20');
+        ctx.fillStyle = dotGrad;
+        ctx.fill();
+    }
+
+    function lightenColor(hex, amount) {
+        const num = parseInt(hex.replace('#', ''), 16);
+        const r = Math.min(255, (num >> 16) + amount);
+        const g = Math.min(255, ((num >> 8) & 0x00FF) + amount);
+        const b = Math.min(255, (num & 0x0000FF) + amount);
+        return `rgb(${r},${g},${b})`;
+    }
+
+    function spinWheel() {
+        if (isSpinning) return;
+        if (hasSpun) {
+            spinBtn.classList.add('shake');
+            setTimeout(() => spinBtn.classList.remove('shake'), 600);
+            return;
+        }
+        
+        isSpinning = true;
+        hasSpun = true;
+        spinBtn.classList.add('spinning');
+        prizeResult.classList.remove('show');
+        document.querySelector('.wheel-wrapper').classList.add('is-spinning');
+
+        // Pick rigged result
+        const targetIndex = riggedResults[Math.floor(Math.random() * riggedResults.length)];
+        
+        // Calculate final angle
+        const targetMid = targetIndex * segAngle + segAngle / 2;
+        const targetFinal = -Math.PI / 2 - targetMid;
+        const fullSpins = 6 + Math.floor(Math.random() * 3);
+        const totalRotation = fullSpins * 2 * Math.PI + (targetFinal - (currentAngle % (2 * Math.PI)));
+        
+        const startAngle = currentAngle;
+        const startTime = performance.now();
+        const duration = 5000 + Math.random() * 2000;
+
+        // Custom easing - fast start, dramatic slow end
+        function easeOut(t) {
+            return 1 - Math.pow(1 - t, 4);
+        }
+
+        // Tick sound simulation
+        let lastSegment = -1;
+
+        function animate(time) {
+            const elapsed = time - startTime;
+            const progress = Math.min(elapsed / duration, 1);
+            const eased = easeOut(progress);
+            
+            currentAngle = startAngle + totalRotation * eased;
+            drawWheel();
+
+            // Check if crossing segment boundary for tick effect
+            const normalizedAngle = ((currentAngle % (2 * Math.PI)) + 2 * Math.PI) % (2 * Math.PI);
+            const currentSeg = Math.floor(normalizedAngle / segAngle) % segments.length;
+            if (currentSeg !== lastSegment) {
+                lastSegment = currentSeg;
+                // Visual tick - pulse pointer
+                document.querySelector('.wheel-pointer').classList.add('tick');
+                setTimeout(() => document.querySelector('.wheel-pointer').classList.remove('tick'), 80);
+            }
+
+            if (progress < 1) {
+                requestAnimationFrame(animate);
+            } else {
+                isSpinning = false;
+                spinBtn.classList.remove('spinning');
+                document.querySelector('.wheel-wrapper').classList.remove('is-spinning');
+                spinBtn.querySelector('.spin-btn-text').textContent = '✓';
+                spinBtn.classList.add('done');
+                showPrize(segments[targetIndex]);
+            }
+        }
+
+        requestAnimationFrame(animate);
+    }
+
+    function showPrize(segment) {
+        document.getElementById('prizeTitle').textContent = '🎉 Complimenti!';
+        document.getElementById('prizeText').textContent = 'Hai vinto: ' + segment.prize;
+        document.getElementById('prizeCode').innerHTML = 'Codice: <strong>' + segment.code + '</strong>';
+        
+        document.getElementById('prizeWon').value = segment.label.replace('\n', ' ') + ' - ' + segment.code;
+        document.getElementById('formPrizeBadge').style.display = 'flex';
+        document.getElementById('formPrizeText').textContent = segment.prize;
+        
+        setTimeout(() => {
+            prizeResult.classList.add('show');
+            createConfetti();
+        }, 400);
+    }
+
+    function createConfetti() {
+        const container = document.getElementById('prizeConfetti');
+        container.innerHTML = '';
+        const colors = ['#C27A50', '#F5E6D3', '#8B5A3C', '#A67C52', '#FFD700', '#ff6b6b', '#48dbfb'];
+        
+        for (let i = 0; i < 60; i++) {
+            const piece = document.createElement('div');
+            piece.className = 'confetti-piece';
+            piece.style.setProperty('--x', (Math.random() * 100) + '%');
+            piece.style.setProperty('--delay', (Math.random() * 0.6) + 's');
+            piece.style.setProperty('--rotation', (Math.random() * 720 - 360) + 'deg');
+            piece.style.setProperty('--color', colors[Math.floor(Math.random() * colors.length)]);
+            piece.style.setProperty('--size', (5 + Math.random() * 8) + 'px');
+            piece.style.setProperty('--drift', (Math.random() * 200 - 100) + 'px');
+            container.appendChild(piece);
+        }
+    }
+
+    function createParticles() {
+        const container = document.getElementById('particles');
+        for (let i = 0; i < 25; i++) {
+            const p = document.createElement('div');
+            p.className = 'particle';
+            p.style.left = Math.random() * 100 + '%';
+            p.style.top = Math.random() * 100 + '%';
+            p.style.animationDelay = Math.random() * 6 + 's';
+            p.style.animationDuration = (3 + Math.random() * 5) + 's';
+            p.style.setProperty('--size', (2 + Math.random() * 4) + 'px');
+            container.appendChild(p);
+        }
+    }
+
+    // Init
+    createLeds();
+    drawWheel();
+    createParticles();
+    spinBtn.addEventListener('click', spinWheel);
+
+    // Date logic
+    const today = new Date().toISOString().split('T')[0];
+    document.getElementById('checkin').setAttribute('min', today);
+    document.getElementById('checkout').setAttribute('min', today);
+
+    document.getElementById('checkin').addEventListener('change', function() {
+        const d = new Date(this.value);
+        d.setDate(d.getDate() + 1);
+        const min = d.toISOString().split('T')[0];
+        document.getElementById('checkout').setAttribute('min', min);
+        if (document.getElementById('checkout').value && document.getElementById('checkout').value <= this.value) {
+            document.getElementById('checkout').value = min;
+        }
+    });
+
+    // Form
+    document.getElementById('rouletteForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        const fd = new FormData(this);
+        const d = Object.fromEntries(fd.entries());
+        
+        const msg = `🎰 *FORMULA ROULETTE*\n\n` +
+            `${d.prize ? '🏆 Vantaggio: ' + d.prize + '\n' : ''}` +
+            `👤 Nome: ${d.name}\n📧 Email: ${d.email}\n📱 Tel: ${d.phone}\n` +
+            `📅 Check-in: ${d.checkin}\n📅 Check-out: ${d.checkout}\n` +
+            `👥 Ospiti: ${d.guests}\n💰 Budget: ${d.budget}\n` +
+            `${d.notes ? '📝 Note: ' + d.notes : ''}`;
+        
+        window.open(`https://wa.me/39XXXXXXXXXX?text=${encodeURIComponent(msg)}`, '_blank');
+        document.getElementById('rouletteModal').classList.add('active');
+    });
+
+    document.getElementById('rouletteModal').addEventListener('click', function(e) {
+        if (e.target === this) this.classList.remove('active');
+    });
+
+    // Smooth scroll
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+        a.addEventListener('click', function(e) {
             e.preventDefault();
-            
-            const formData = new FormData(this);
-            const data = Object.fromEntries(formData.entries());
-            
-            // Build WhatsApp message
-            const message = `🎰 *FORMULA ROULETTE*\n\n` +
-                `👤 Nome: ${data.name}\n` +
-                `📧 Email: ${data.email}\n` +
-                `📱 Tel: ${data.phone}\n` +
-                `📅 Check-in: ${data.checkin}\n` +
-                `📅 Check-out: ${data.checkout}\n` +
-                `👥 Ospiti: ${data.guests}\n` +
-                `💰 Budget: ${data.budget}\n` +
-                `${data.notes ? '📝 Note: ' + data.notes : ''}`;
-            
-            // Open WhatsApp with the message (replace with your number)
-            const whatsappUrl = `https://wa.me/39XXXXXXXXXX?text=${encodeURIComponent(message)}`;
-            window.open(whatsappUrl, '_blank');
-            
-            // Show confirmation modal
-            document.getElementById('rouletteModal').classList.add('active');
+            const t = document.querySelector(this.getAttribute('href'));
+            if (t) t.scrollIntoView({ behavior: 'smooth', block: 'start' });
         });
-
-        // Close modal on click outside
-        document.getElementById('rouletteModal').addEventListener('click', function(e) {
-            if (e.target === this) {
-                this.classList.remove('active');
-            }
-        });
+    });
     </script>
 </body>
 </html>
