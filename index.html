@@ -606,19 +606,29 @@
         // WHEEL ENGINE
         // ============================================
         const segments = [
-            { label: '5%\nSCONTO',     color: '#C27A50', prize: '5% di sconto sul soggiorno!', code: 'ROULETTE5' },
-            { label: 'WELCOME\nKIT',   color: '#1a3a52', prize: 'Welcome kit sardo in omaggio!', code: 'WELCOME' },
-            { label: '10%\nSCONTO',    color: '#8B5A3C', prize: '10% di sconto sul soggiorno!', code: 'ROULETTE10' },
-            { label: 'LATE\n14:00',    color: '#2a4a62', prize: 'Late checkout fino alle 14:00!', code: 'LATE14' },
-            { label: 'EARLY\n12:00',   color: '#A67C52', prize: 'Early check-in dalle 12:00!', code: 'EARLY12' },
-            { label: '7%\nSCONTO',     color: '#0a1e2e', prize: '7% di sconto sul soggiorno!', code: 'ROULETTE7' },
-            { label: 'LATE\n13:00',    color: '#C27A50', prize: 'Late checkout fino alle 13:00!', code: 'LATE13' },
-            { label: 'EARLY\n13:00',   color: '#1a3a52', prize: 'Early check-in dalle 13:00!', code: 'EARLY13' },
+            { label: '10%\nSCONTO',       color: '#8B5A3C', prize: '10% di sconto sul soggiorno!', code: 'SCONTO10', glow: false },
+            { label: 'CARTOLINA\nSARDA',   color: '#1a3a52', prize: 'Una cartolina sarda in omaggio!', code: 'CARTOLINA', glow: false },
+            { label: '15%\nSCONTO',       color: '#A67C52', prize: '15% di sconto sul soggiorno!', code: 'SCONTO15', glow: false },
+            { label: 'RIGIRA\nGRATIS',     color: '#2a4a62', prize: '', code: 'RESPIN', glow: false, respin: true },
+            { label: 'SOGGIORNO\nGRATIS',  color: '#0d0d0d', prize: 'SOGGIORNO COMPLETAMENTE GRATIS!', code: 'GRATIS', glow: true },
+            { label: '2%\nSCONTO',        color: '#1a3a52', prize: '2% di sconto sul soggiorno!', code: 'SCONTO2', glow: false },
+            { label: '10%\nSCONTO',       color: '#8B5A3C', prize: '10% di sconto sul soggiorno!', code: 'SCONTO10', glow: false },
+            { label: 'BUON\nVIAGGIO!',    color: '#0a1e2e', prize: 'Un augurio di buon viaggio!', code: 'AUGURI', glow: false },
         ];
 
-        const riggedResults = [0, 2, 4, 5, 6];
+        // Rigged: 85% → 10% o 15% sconto (indici 0,2,6), 15% → Rigira Gratis (indice 3)
+        // Soggiorno Gratis (indice 4) non esce MAI
+        function getTargetIndex() {
+            const roll = Math.random();
+            if (roll < 0.40) return 0; // 10% sconto
+            if (roll < 0.65) return 2; // 15% sconto
+            if (roll < 0.85) return 6; // 10% sconto (seconda)
+            return 3;                  // Rigira Gratis
+        }
+
         let canvas, ctx, centerX, centerY, radius, segAngle;
         let currentAngle = 0, isSpinning = false, hasSpun = false;
+        let glowPhase = 0, glowAnimId = null;
 
         function initWheel() {
             canvas = document.getElementById('rpWheelCanvas');
@@ -630,7 +640,18 @@
 
             createLeds();
             drawWheel();
+            startGlowAnimation();
             document.getElementById('rpSpinBtn').addEventListener('click', spinWheel);
+        }
+
+        function startGlowAnimation() {
+            if (glowAnimId) return;
+            function animateGlow() {
+                glowPhase += 0.04;
+                if (!isSpinning) drawWheel();
+                glowAnimId = requestAnimationFrame(animateGlow);
+            }
+            animateGlow();
         }
 
         function createLeds() {
@@ -681,16 +702,46 @@
                 const mid = start + segAngle / 2;
                 const gx = centerX + radius * 0.5 * Math.cos(mid);
                 const gy = centerY + radius * 0.5 * Math.sin(mid);
-                const sg = ctx.createRadialGradient(centerX, centerY, 30, gx, gy, radius);
-                sg.addColorStop(0, lightenColor(seg.color, 20));
-                sg.addColorStop(1, seg.color);
 
-                ctx.beginPath();
-                ctx.moveTo(centerX, centerY);
-                ctx.arc(centerX, centerY, radius, start, end);
-                ctx.closePath();
-                ctx.fillStyle = sg;
-                ctx.fill();
+                // GLOW effect for 'Soggiorno Gratis'
+                if (seg.glow) {
+                    const glowIntensity = 0.4 + 0.6 * Math.abs(Math.sin(glowPhase));
+                    const sg = ctx.createRadialGradient(centerX, centerY, 30, gx, gy, radius);
+                    sg.addColorStop(0, `rgba(255, 215, 0, ${glowIntensity * 0.6})`);
+                    sg.addColorStop(0.5, `rgba(255, 165, 0, ${glowIntensity * 0.4})`);
+                    sg.addColorStop(1, '#1a0800');
+                    ctx.beginPath();
+                    ctx.moveTo(centerX, centerY);
+                    ctx.arc(centerX, centerY, radius, start, end);
+                    ctx.closePath();
+                    ctx.fillStyle = sg;
+                    ctx.fill();
+                    // Glow outer edge
+                    ctx.save();
+                    ctx.beginPath();
+                    ctx.moveTo(centerX, centerY);
+                    ctx.arc(centerX, centerY, radius, start, end);
+                    ctx.closePath();
+                    ctx.clip();
+                    ctx.shadowColor = `rgba(255, 215, 0, ${glowIntensity})`;
+                    ctx.shadowBlur = 18;
+                    ctx.beginPath();
+                    ctx.arc(centerX, centerY, radius - 2, start, end);
+                    ctx.strokeStyle = `rgba(255, 215, 0, ${glowIntensity * 0.8})`;
+                    ctx.lineWidth = 3;
+                    ctx.stroke();
+                    ctx.restore();
+                } else {
+                    const sg = ctx.createRadialGradient(centerX, centerY, 30, gx, gy, radius);
+                    sg.addColorStop(0, lightenColor(seg.color, 20));
+                    sg.addColorStop(1, seg.color);
+                    ctx.beginPath();
+                    ctx.moveTo(centerX, centerY);
+                    ctx.arc(centerX, centerY, radius, start, end);
+                    ctx.closePath();
+                    ctx.fillStyle = sg;
+                    ctx.fill();
+                }
 
                 // Border
                 ctx.beginPath();
@@ -706,14 +757,19 @@
                 ctx.rotate(start + segAngle / 2);
                 ctx.textAlign = 'center';
                 ctx.textBaseline = 'middle';
-                ctx.shadowColor = 'rgba(0,0,0,0.5)';
-                ctx.shadowBlur = 4;
+                if (seg.glow) {
+                    ctx.shadowColor = 'rgba(255, 215, 0, 0.9)';
+                    ctx.shadowBlur = 10;
+                } else {
+                    ctx.shadowColor = 'rgba(0,0,0,0.5)';
+                    ctx.shadowBlur = 4;
+                }
                 const lines = seg.label.split('\n');
                 const td = radius * 0.62;
                 lines.forEach((line, li) => {
                     const yOff = (li - (lines.length - 1) / 2) * 16;
                     ctx.font = li === 0 ? 'bold 14px Poppins, sans-serif' : 'bold 11px Montserrat, sans-serif';
-                    ctx.fillStyle = '#fff';
+                    ctx.fillStyle = seg.glow ? '#FFD700' : '#fff';
                     ctx.fillText(line, td, yOff);
                 });
                 ctx.restore();
@@ -766,13 +822,13 @@
         }
 
         function spinWheel() {
-            if (isSpinning || hasSpun) return;
+            if (isSpinning) return;
+            if (hasSpun) return;
             isSpinning = true;
-            hasSpun = true;
 
             document.querySelector('.rp-wheel-wrapper').classList.add('is-spinning');
 
-            const targetIndex = riggedResults[Math.floor(Math.random() * riggedResults.length)];
+            const targetIndex = getTargetIndex();
             const targetMid = targetIndex * segAngle + segAngle / 2;
             const targetFinal = -Math.PI / 2 - targetMid;
             const fullSpins = 6 + Math.floor(Math.random() * 3);
@@ -807,6 +863,23 @@
                     isSpinning = false;
                     document.querySelector('.rp-wheel-wrapper').classList.remove('is-spinning');
                     wonPrize = segments[targetIndex];
+                    
+                    // Handle respin
+                    if (wonPrize.respin) {
+                        setTimeout(() => {
+                            // Flash 'Rigira!' message
+                            const intro = document.querySelector('.rp-wheel-intro');
+                            intro.textContent = '🔄 Rigira! Hai un altro tentativo!';
+                            intro.style.color = '#FFD700';
+                            setTimeout(() => {
+                                intro.textContent = 'Clicca al centro della ruota per girarla!';
+                                intro.style.color = '';
+                            }, 2000);
+                        }, 500);
+                        return; // Don't mark hasSpun, allow another spin
+                    }
+                    
+                    hasSpun = true;
                     setTimeout(() => showPrizeStep(wonPrize), 500);
                 }
             }
